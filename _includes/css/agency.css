@@ -268,7 +268,7 @@ header {
     background-attachment: scroll;
 /*    background-image: url(../img/header-bg.jpg); */
     background-image: none;
-    background-color: #ababab;
+    background-color: #4CAF50;
     background-position: center center;
     background-repeat: none;
     -webkit-background-size: cover;
@@ -278,8 +278,9 @@ header {
 }
 
 header .intro-text {
+    position: relative;
     padding-top: 100px;
-    padding-bottom: 50px;
+    padding-bottom: 90px;
 }
 
 header .intro-text .intro-lead-in {
@@ -309,8 +310,8 @@ header .intro-text .intro-sublead {
 
 @media(min-width:768px) {
     header .intro-text {
-        padding-top: 200px;
-        padding-bottom: 200px;
+        padding-top: 150px;
+        padding-bottom: 85px;
     }
 
     header .intro-text .intro-lead-in {
@@ -338,6 +339,12 @@ header .intro-text .intro-sublead {
         line-height: 25px;
     }
 
+}
+
+header .intro-cta {
+    position: absolute;
+    width: 100%;
+    padding-top: 50px;
 }
 
 section {
