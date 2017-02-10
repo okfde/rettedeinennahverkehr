@@ -1,0 +1,61 @@
+<script>
+function renderPDF() {
+	var name= $("#name").val()
+	var address= $("#address").val()
+	var city = $("#city").val()
+	var text = ("Sehr geehrter König von Stuttgart,\n\nmit einiger Empörung durfte ich der Lügenpresse entnehmen, dass der hiesige Verkehrsverbund seine Fahrplandaten zwar mit Google teilt, nicht jedoch mit einheimischen Entwickler*innen. Sicher verstehen Sie, dass es auf diese Weise mit Industrie 4.0 in Deutschland und moderner Mobilität nix werden kann.\n\nIch würde mich sehr freuen, wenn Sie bei der nächsten Mitgliederversammlung des VVS darauf hinwirken würden, dass die Fahrplandaten des VVS im freien Fahrplanformat GTFS und unter offener Lizenz allen interessierten Entwickler*innen zur Verfügung gestellt werden.");
+
+	var doc = new jsPDF();
+	doc.setFontSize(13);
+	doc.text(27,  56, "König von Stuttgart")
+	doc.text(27,  64, "Schlossgarten");
+	doc.text(27,  74,"Stuttgart");
+	doc.text(150,  30, name)
+	doc.text(150,  38, address);
+	doc.text(150,  46, city);
+	doc.setFontSize(16);
+	lines = doc.splitTextToSize(text, 180)
+	doc.text(20, 100, lines)
+	doc.setDrawColor(100,100,100);
+	doc.line(20, 215, 80, 215);
+	doc.text(20, 222, name);
+	doc.output("datauri");
+}
+</script>
+
+<!-- Team Section -->
+    <section id="action" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Wie kann auch Dein Verbund Daten beitragen?</h2>
+                    <h3 class="section-subheading text-muted">Wir brauchen den politischen Willen, offene Daten für die Mobilität von morgen anzubieten. Beteilige Dich an der Diskussion darüber!</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <p class="text-muted"><img src="http://github.com/highsource/verbundkarte/raw/master/Bilder/Verf%C3%BCgbarkeit-der-Fahrpl%C3%A4ne.png" class="img-responsive"></p>
+                </div>
+                <div class="col-md-8">
+                    <h4 class="service-heading">Offene Daten statt teurer Projekte</h4>
+                    <p class="text-muted">Bislang bieten nur ausgewählte Vorreiterverbünde und -unternehmen ihre Fahrpläne im GTFS-Format an. Viele Verbünde sind immer noch der Ansicht, den Routenplaner für die Zukunft ganz alleine stemmen zu können, und <a href="https://fragdenstaat.de/anfrage/finanzielle-forderung-des-delfi-projekts/">investieren gemeinsam viele Millionen Euro aus Steuergeldern</a> für nicht sonderlich innovative Großprojekte. <strong>Du kannst mithelfen, diesen Kurs zu ändern!</strong></p>
+                    <p class="text-muted">Schreibe den Verantwortlichen in den Gebietskörperschaften Deines Verkehrsverbundes – und zwar keine E-Mail, sondern einen ganz klassischen Brief! Wir haben Dir einen Vorschlag vorformuliert, du musst nur noch Unterschreiben und abdingsen. Wenn Du möchtest, kannst Du bei der aufgeführten Telefonnummer auch anrufen und die wichtigsten Punkte vorlesen. Für Rückfragen haben wir auch eine <a href="#faq">FAQ</a> vorbereitet!</p>
+                    <form>
+                        <div class="form-group">
+                            <input type="text" placeholder="Dein Name" id="name"> <input type="text" placeholder="Straße und Hausnummer" id="address"> <input type="text" placeholder="PLZ und Stadt" id="city">
+                        </div>
+                        <div class="form-group">
+                            <select id="verbund">
+                              <option>VVS Verkehrsverbund Stuttgart</option>
+                            </select>
+                        </div>
+                        <a href="javascript:renderPDF()" class="btn btn-primary"><span class="fa fa-download"></span> Brief herunterladen</a>
+                    </form>
+                </div>
+
+
+
+            </div>
+
+        </div>
+    </section>
