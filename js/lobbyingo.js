@@ -65,7 +65,11 @@ $(document).ready(function() {
       var data = response.postalcodes[0];
       ort = data .placeName;
       landkreis = data.adminName3;
-      ags = data.adminCode3;
+      if (typeof data.adminCode3 == "undefined") {
+        ags = data.adminCode2;
+      } else {
+        ags = data.adminCode3;
+      }
 
       $('#plzrepeat').text(plz);
 
