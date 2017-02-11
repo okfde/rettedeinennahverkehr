@@ -23,23 +23,24 @@ function renderPDF() {
 
 $(document).ready(function() {
 
+  var ort = $('#ort');
+  var landkreis = $('#landkreis');
+  var ags = $('#ags');
+  var lra = $('#lra');
+  var ar = $('#ar');
+  var arn = $('#arn');
+  var sge = $('#sge');
+  var lvn = $('#lvn');
+  var lnn = $('#lnn');
+  var str = $('#str');
+  var lraplz = $('#lraplz');
+  var stt = $('#stt');
+  var vbd = $('#vbd');
+  var tel = $('#tel');
+
    // auto complete city via zip code
    $('#plz').keyup(function() {
     if ($(this).val().length > 4) {
-      var ort = $('#ort');
-      var landkreis = $('#landkreis');
-      var ags = $('#ags');
-      var lra = $('#lra');
-      var ar = $('#ar');
-      var arn = $('#arn');
-      var sge = $('#sge');
-      var lvn = $('#lvn');
-      var lnn = $('#lnn');
-      var str = $('#str');
-      var lraplz = $('#lraplz');
-      var stt = $('#stt');
-      var vbd = $('#vbd');
-      var tel = $('#tel');
       $.getJSON('https://schmidt.okfn.de/gn-plz?&country=DE&callback=?', {postalcode: this.value }, function(response) {
         if (response && response.postalcodes.length && response.postalcodes[0].placeName) {
           ort.val(response.postalcodes[0].placeName);
