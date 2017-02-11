@@ -40,7 +40,7 @@ function renderPDF() {
 	doc.text(20, 100, lines)
 	doc.setDrawColor(100,100,100);
 	doc.line(20, 215, 80, 215);
-	doc.text(20, 222, "name");
+	doc.text(20, 222, name);
 
 	doc.output("dataurlnewwindow");
 }
