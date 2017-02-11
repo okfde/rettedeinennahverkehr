@@ -468,6 +468,10 @@ section h3.section-subheading {
     }
 }
 
+#warum img {
+    max-width: 100%;
+}
+
 .timeline {
     position: relative;
     padding: 0;
