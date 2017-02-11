@@ -89,6 +89,7 @@ $(document).ready(function() {
         stt = response.stt;
         vbd = response.vbd;
         tel = response.tel;
+        var cleanTel = tel.replace(/\D/g, '');
 
         if (!!response.gtfs) {
           $('#agency').text(vbd);
@@ -98,7 +99,7 @@ $(document).ready(function() {
 
         $('#city').val(stt);
 
-        $('#tel').text(tel);
+        $('#tel').attr('href', 'tel:' + cleanTel).text(tel);
         $('#tel-name').text(arn + " " + lvn + " " + lnn);
         $('#actionResult').show();
       }).fail(function() {

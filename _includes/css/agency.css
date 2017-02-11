@@ -729,6 +729,11 @@ section h3.section-subheading {
     font-weight: bold;
 }
 
+#tel {
+    color: inherit;
+    text-decoration: none;
+}
+
 #actionMailBtn {
     margin: 1em 0;
 }
