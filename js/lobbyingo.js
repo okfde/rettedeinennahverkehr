@@ -27,13 +27,19 @@ $(document).ready(function() {
    $('#plz').keyup(function() {
     if ($(this).val().length > 4) {
       var ort = $('#ort');
+      var landkreis = $('#landkreis');
+      var ags = $('#ags');
       $.getJSON('http://www.geonames.org/postalCodeLookupJSON?&country=DE&callback=?', {postalcode: this.value }, function(response) {
         if (response && response.postalcodes.length && response.postalcodes[0].placeName) {
           ort.val(response.postalcodes[0].placeName);
+          landkreis.val(response.postalcodes[0].adminName3);
+          ags.val(response.postalcodes[0].adminCode3);
         }
       })
     } else {
       $('#ort').val('');
+      $('#landkreis').val('');
+      $('#ags').val('');
     }
 });
 
