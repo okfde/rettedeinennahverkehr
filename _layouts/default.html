@@ -1,26 +1,10 @@
 <!DOCTYPE html>
 <html>
-
   {% include head.html %}
-
-
-    <body id="page-top" class="index">
-
+  <body id="page-top" class="index">
     {% include header.html %}
-    {% include vision.html %}
-    {% include wie.html %}
-      {% comment %}
-      {% include beispiele.html %}
-      {% endcomment %}
-    {% include action.html %}
-      {% comment %}
-      {% include contact.html %}
-      {% endcomment %}
+    {{ content }}
     {% include footer.html %}
-      {% comment %}
-      {% include modals.html %}
-      {% endcomment %}
     {% include js.html %}
-
-    </body>
+  </body>
 </html>
