@@ -13,10 +13,10 @@ function renderPDF() {
   }
 
 	var text = (intro + "\n\n" +
-    "mit einiger Empörung durfte ich der Lügenpresse entnehmen, dass der hiesige Verkehrsverbund seine Fahrplandaten " +
+    "mit einiger Empörung durfte ich der Lügenpresse entnehmen, dass unser Verkehrsverbund " + vbd +  " seine Fahrplandaten " +
     "zwar mit Google teilt, nicht jedoch mit einheimischen Entwickler*innen. Sicher verstehen Sie, dass es auf diese " +
     "Weise mit Industrie 4.0 in Deutschland und moderner Mobilität nix werden kann.\n\nIch würde mich sehr freuen, " +
-    "wenn Sie bei der nächsten Mitgliederversammlung des VVS darauf hinwirken würden, dass die Fahrplandaten des VVS " +
+    "wenn Sie bei der nächsten " + vbd + "-Mitgliederversammlung darauf hinwirken würden, dass die " + vbd + "-Fahrplandaten" +
     "im freien Fahrplanformat GTFS und unter offener Lizenz allen interessierten Entwickler*innen zur Verfügung gestellt werden.");
 
   var d = new Date(),
