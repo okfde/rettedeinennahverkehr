@@ -45,22 +45,23 @@ $(document).ready(function() {
           ort.val(response.postalcodes[0].placeName);
           landkreis.val(response.postalcodes[0].adminName3);
           ags.val(response.postalcodes[0].adminCode3);
+          $.getJSON('/data/' + ags.val() + ".json", function(response) {
+            if (response) {
+              lra.val(response.ad1);
+              ar.val(response.ar);
+              arn.val(response.arn);
+              sge.val(response.sge);
+              lvn.val(response.lvn);
+              lnn.val(response.lnn);
+              str.val(response.str);
+              lraplz.val(response.plz);
+              stt.val(response.stt);
+              vbd.val(response.vbd);
+              tel.val(response.tel);
+              $('#briefgenerator').show();
+            }
+          })
         }
-        $.getJSON('/data/' + ags.val() + ".json", function(response) {
-          if (response) {
-            lra.val(response.ad1);
-            ar.val(response.ar);
-            arn.val(response.arn);
-            sge.val(response.sge);
-            lvn.val(response.lvn);
-            lnn.val(response.lnn);
-            str.val(response.str);
-            lraplz.val(response.plz);
-            stt.val(response.stt);
-            vbd.val(response.vbd);
-            tel.val(response.tel);
-          }
-        })
       })
     } else {
       $('#ort').val('');
@@ -77,6 +78,7 @@ $(document).ready(function() {
       $('#stt').val('');
       $('#vbd').val('');
       $('#tel').val('');
+      $('#briefgenerator').hide();
     }
   });
 
