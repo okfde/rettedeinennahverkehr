@@ -29,18 +29,55 @@ $(document).ready(function() {
       var ort = $('#ort');
       var landkreis = $('#landkreis');
       var ags = $('#ags');
+      var lra = $('#lra');
+      var ar = $('#ar');
+      var arn = $('#arn');
+      var sge = $('#sge');
+      var lvn = $('#lvn');
+      var lnn = $('#lnn');
+      var str = $('#str');
+      var lraplz = $('#lraplz');
+      var stt = $('#stt');
+      var vbd = $('#vbd');
+      var tel = $('#tel');
       $.getJSON('https://schmidt.okfn.de/gn-plz?&country=DE&callback=?', {postalcode: this.value }, function(response) {
         if (response && response.postalcodes.length && response.postalcodes[0].placeName) {
           ort.val(response.postalcodes[0].placeName);
           landkreis.val(response.postalcodes[0].adminName3);
           ags.val(response.postalcodes[0].adminCode3);
         }
+        $.getJSON('/data/' + ags.val() + ".json", function(response) {
+          if (response) {
+            lra.val(response.ad1);
+            ar.val(response.ar);
+            arn.val(response.arn);
+            sge.val(response.sge);
+            lvn.val(response.lvn);
+            lnn.val(response.lnn);
+            str.val(response.str);
+            lraplz.val(response.plz);
+            stt.val(response.stt);
+            vbd.val(response.vbd);
+            tel.val(response.tel);
+          }
+        })
       })
     } else {
       $('#ort').val('');
       $('#landkreis').val('');
       $('#ags').val('');
+      $('#lra').val('');
+      $('#ar').val('');
+      $('#arn').val('');
+      $('#sge').val('');
+      $('#lvn').val('');
+      $('#lnn').val('');
+      $('#str').val('');
+      $('#lraplz').val('');
+      $('#stt').val('');
+      $('#vbd').val('');
+      $('#tel').val('');
     }
-});
+  });
 
 });
