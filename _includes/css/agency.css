@@ -666,6 +666,33 @@ section h3.section-subheading {
     }
 }
 
+.fa-stack.timeline-bus {
+    font-size: 2.3em;
+}
+
+@media(min-width:768px) {
+    .fa-stack.timeline-bus {
+        font-size: 3em;
+    }
+}
+
+@media(min-width:992px) {
+    .fa-stack.timeline-bus {
+        font-size: 5em;
+    }
+}
+
+.timeline-last .timeline-heading {
+    display: block;
+}
+
+@media(min-width:992px) {
+    .timeline-last .timeline-heading {
+        display: none;
+    }
+}
+
+
 .team-member {
     margin-bottom: 50px;
     text-align: center;
