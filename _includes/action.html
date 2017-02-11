@@ -16,23 +16,27 @@
                     <p class="text-muted">Bislang bieten nur ausgewählte Vorreiterverbünde und -unternehmen ihre Fahrpläne im GTFS-Format an. Viele Verbünde sind immer noch der Ansicht, den Routenplaner für die Zukunft ganz alleine stemmen zu können, und <a href="https://fragdenstaat.de/anfrage/finanzielle-forderung-des-delfi-projekts/">investieren gemeinsam viele Millionen Euro aus Steuergeldern</a> für nicht sonderlich innovative Großprojekte. <strong>Du kannst mithelfen, diesen Kurs zu ändern!</strong></p>
                     <p class="text-muted">Schreibe den Verantwortlichen in den Gebietskörperschaften Deines Verkehrsverbundes – und zwar keine E-Mail, sondern einen ganz klassischen Brief! Wir haben Dir einen Vorschlag vorformuliert, du musst nur noch Unterschreiben und abdingsen. Wenn Du möchtest, kannst Du bei der aufgeführten Telefonnummer auch anrufen und die wichtigsten Punkte vorlesen. Für Rückfragen haben wir auch eine <a href="#faq">FAQ</a> vorbereitet!</p>
 
- 
                     <!-- Fancy Formular startet HIER! -->
-                    <form action="">
+                    <form action="" class="form-horizontal">
                         <div class="form-group">
-                            <input value="" size="5" name="form[plz]" id="plz" type="text" placeholder="PLZ">
-                            <input type="text" placeholder="Stadt" id="ort" readonly=""> 
+                            <label for="plz" class="col-sm-6 control-label action-plz-label">Gib hier deine Postleitzahl ein:</label>
+                            <div class="col-sm-4">
+                                <input value="" size="5" name="form[plz]" id="plz" type="text" placeholder="PLZ" class="form-control input-lg" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Stadt" id="ort" readonly="">
                             <input type="text" placeholder="Landkreis" id="landkreis" readonly="">
                             <input type="text" placeholder="Landkreis-AGS" id="ags" readonly="">
                         </div>
 
-                        <a href="javascript:renderPDF()" class="btn btn-primary"><span class="fa fa-download"></span> Brief herunterladen</a>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <a href="javascript:renderPDF()" class="btn btn-primary btn-lg"><span class="fa fa-download"></span> Brief herunterladen</a>
+                            </div>
+                        </div>
                     </form>
                 </div>
-
-
-
             </div>
-
         </div>
     </section>
