@@ -62,6 +62,33 @@
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane active" id="mail">
                                 <p>Schreibe den Verantwortlichen in den Gebietskörperschaften Deines Verkehrsverbundes – und zwar keine E-Mail, sondern einen ganz klassischen Brief! Wir haben Dir einen Vorschlag vorformuliert, du musst nur noch Unterschreiben und abdingsen.</p>
+
+                                <p>Wenn du möchtest, kann der Brief gleich mit deinem Namen und Adresse befüllt werden:</p>
+                                <form action="" class="form-horizontal">
+                                    <div class="form-group">
+                                        <label for="name" class="col-sm-3 control-label">Name:</label>
+                                        <div class="col-sm-9">
+                                            <input value="" id="name" type="text" placeholder="Vor- und Nachname" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="address" class="col-sm-3 control-label">Adresse:</label>
+                                        <div class="col-sm-9">
+                                            <input value="" id="address" type="text" placeholder="Straße und Hausnummer" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="city" class="col-sm-3 control-label">Stadt:</label>
+                                        <div class="col-sm-9">
+                                            <div class="input-group">
+                                                <div class="input-group-addon" id="plzrepeat"></div>
+                                                <input type="text" class="form-control" id="city" placeholder="Stadt">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+
+
                                 <a href="#" class="btn btn-primary btn-lg" id="actionMailBtn">
                                     <span class="fa fa-download"></span> Brief herunterladen
                                 </a>

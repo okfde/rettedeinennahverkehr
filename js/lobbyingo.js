@@ -1,15 +1,30 @@
+var ort = '', landkreis = '', ags = '', lra = '', ar = '', arn = '',
+    sge = '', lvn = '', lnn = '', str = '', lraplz = '', stt = '',
+    vbd = '', tel = '', plz = '';
+
 function renderPDF() {
-	var name= $("#name").val()
-	var address= $("#address").val()
-	var city = $("#city").val()
-	var text = ("Sehr geehrter König von Stuttgart,\n\nmit einiger Empörung durfte ich der Lügenpresse entnehmen, dass der hiesige Verkehrsverbund seine Fahrplandaten zwar mit Google teilt, nicht jedoch mit einheimischen Entwickler*innen. Sicher verstehen Sie, dass es auf diese Weise mit Industrie 4.0 in Deutschland und moderner Mobilität nix werden kann.\n\nIch würde mich sehr freuen, wenn Sie bei der nächsten Mitgliederversammlung des VVS darauf hinwirken würden, dass die Fahrplandaten des VVS im freien Fahrplanformat GTFS und unter offener Lizenz allen interessierten Entwickler*innen zur Verfügung gestellt werden.");
+	var name= $("#name").val();
+	var address= $("#address").val();
+	var city = $("#city").val();
+
+	var text = (sge + " " + ar + " " + lnn + ",\n\n" +
+    "mit einiger Empörung durfte ich der Lügenpresse entnehmen, dass der hiesige Verkehrsverbund seine Fahrplandaten " +
+    "zwar mit Google teilt, nicht jedoch mit einheimischen Entwickler*innen. Sicher verstehen Sie, dass es auf diese " +
+    "Weise mit Industrie 4.0 in Deutschland und moderner Mobilität nix werden kann.\n\nIch würde mich sehr freuen, " +
+    "wenn Sie bei der nächsten Mitgliederversammlung des VVS darauf hinwirken würden, dass die Fahrplandaten des VVS " +
+    "im freien Fahrplanformat GTFS und unter offener Lizenz allen interessierten Entwickler*innen zur Verfügung gestellt werden.");
+
+  var d = new Date(),
+      months = 'Januar,Februar,März,April,Mai,Juni,Juli,August,September,Oktober,November,Dezember'.split(','),
+      datum = d.getDate() + ". " + months[d.getMonth()] + " "+ d.getFullYear();
 
 	var doc = new jsPDF();
 	doc.setFontSize(13);
-	doc.text(20,  56, "König von Stuttgart")
-	doc.text(20,  64, "Schlossgarten");
-	doc.text(20,  74,"Stuttgart");
-	doc.text(150,  30, name + "\n" + address + "\n" + city + "\nDatum")
+  doc.text(20,  46, lra)
+	doc.text(20,  56, arn + " " + lvn + " " + lnn)
+	doc.text(20,  64, str);
+	doc.text(20,  74, lraplz + " " + stt);
+	doc.text(150,  30, name + "\n" + address + "\n" + plz + " " + city + "\n\n" + datum)
 
 	lines = doc.splitTextToSize(text, 160)
 	doc.text(20, 100, lines)
@@ -20,70 +35,49 @@ function renderPDF() {
 	doc.output("datauri");
 }
 
-
 $(document).ready(function() {
   $('#actionResult').hide();
 
-  var ort = $('#ort');
-  var landkreis = $('#landkreis');
-  var ags = $('#ags');
-  var lra = $('#lra');
-  var ar = $('#ar');
-  var arn = $('#arn');
-  var sge = $('#sge');
-  var lvn = $('#lvn');
-  var lnn = $('#lnn');
-  var str = $('#str');
-  var lraplz = $('#lraplz');
-  var stt = $('#stt');
-  var vbd = $('#vbd');
-  var tel = $('#tel');
-
-   // auto complete city via zip code
-   $('#plz').keyup(function() {
-    if ($(this).val().length > 4) {
-      $.getJSON('https://schmidt.okfn.de/gn-plz?&country=DE&callback=?', {postalcode: this.value }, function(response) {
-        if (response && response.postalcodes.length && response.postalcodes[0].placeName) {
-          ort.val(response.postalcodes[0].placeName);
-          landkreis.val(response.postalcodes[0].adminName3);
-          ags.val(response.postalcodes[0].adminCode3);
-          $.getJSON('/data/' + ags.val() + ".json", function(response) {
-            if (response) {
-              lra.val(response.ad1);
-              ar.val(response.ar);
-              arn.val(response.arn);
-              sge.val(response.sge);
-              lvn.val(response.lvn);
-              lnn.val(response.lnn);
-              str.val(response.str);
-              lraplz.val(response.plz);
-              stt.val(response.stt);
-              vbd.val(response.vbd);
-              tel.text(response.tel);
-              $('#actionResult').show();
-            }
-          })
-        }
-      })
-    } else {
-      $('#ort').val('');
-      $('#landkreis').val('');
-      $('#ags').val('');
-      $('#lra').val('');
-      $('#ar').val('');
-      $('#arn').val('');
-      $('#sge').val('');
-      $('#lvn').val('');
-      $('#lnn').val('');
-      $('#str').val('');
-      $('#lraplz').val('');
-      $('#stt').val('');
-      $('#vbd').val('');
-      $('#tel').val('');
+  $('#plz').keyup(function() {
+    plz = $(this).val();
+    if (plz.length <= 4) {
       $('#actionResult').hide();
+      return;
     }
-  });
+    $.getJSON('https://schmidt.okfn.de/gn-plz?&country=DE&callback=?', {postalcode: plz }, function(response) {
+      if (!response || typeof response.postalcodes == 'undefined' || response.postalcodes.length <= 0 || !response.postalcodes[0].placeName) {
+        return;
+      }
 
+      var data = response.postalcodes[0];
+      ort = data .placeName;
+      landkreis = data.adminName3;
+      ags = data.adminCode3;
+
+      $('#plzrepeat').text(plz);
+
+      $.getJSON('/data/' + ags + ".json", function(response) {
+        if (!response) {
+          return;
+        }
+
+        lra = response.ad1;
+        ar = response.ar;
+        arn = response.arn;
+        sge = response.sge;
+        lvn = response.lvn;
+        lnn = response.lnn;
+        str = response.str;
+        lraplz = response.plz;
+        stt = response.stt;
+        vbd = response.vbd;
+        tel = response.tel;
+
+        $('#tel').text(tel);
+        $('#actionResult').show();
+      });
+    });
+  });
 
   $('#actionMailBtn').click(renderPDF);
 });
