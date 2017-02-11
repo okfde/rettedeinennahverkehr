@@ -172,7 +172,8 @@ fieldset[disabled] .btn-xl.active {
 
 .navbar-default {
     border-color: transparent;
-    background-color: #222;
+    background-color: #4CAF50;
+    display: none;
 }
 
 .navbar-default .navbar-brand {
@@ -231,6 +232,10 @@ fieldset[disabled] .btn-xl.active {
     background-color: #{{ site.color.secondary }};
 }
 
+.navbar-default.navbar-shrink {
+    display: block;
+}
+
 @media(min-width:768px) {
     .navbar-default {
         padding: 25px 0;
@@ -254,7 +259,7 @@ fieldset[disabled] .btn-xl.active {
 
     .navbar-default.navbar-shrink {
         padding: 10px 0;
-        background-color: #222;
+        background-color: #4CAF50;
     }
 
     .navbar-default.navbar-shrink .navbar-brand {
@@ -288,7 +293,7 @@ header .intro-text .intro-lead-in {
     font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 22px;
     font-style: italic;
-    line-height: 22px;
+    line-height: 1.5;
 }
 
 header .intro-text .intro-heading {
@@ -310,7 +315,7 @@ header .intro-text .intro-sublead {
 
 @media(min-width:768px) {
     header .intro-text {
-        padding-top: 150px;
+        padding-top: 100px;
         padding-bottom: 85px;
     }
 
@@ -345,6 +350,12 @@ header .intro-cta {
     position: absolute;
     width: 100%;
     padding-top: 50px;
+}
+
+header .intro-cta .btn {
+    word-break: break-word;
+    white-space: normal;
+    max-width: 100%;
 }
 
 section {
