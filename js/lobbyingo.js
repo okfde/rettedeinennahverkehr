@@ -47,12 +47,14 @@ function renderPDF() {
 
 $(document).ready(function() {
   $('#actionResult').hide();
+  $('#actionResultHasData').hide();
 
   $('#plz').keyup(function() {
     plz = $(this).val();
     if (plz.length <= 4) {
       $('#actionError').hide();
       $('#actionResult').hide();
+      $('#actionResultHasData').hide();
       return;
     }
     $.getJSON('https://schmidt.okfn.de/gn-plz?&country=DE&callback=?', {postalcode: plz }, function(response) {
@@ -83,6 +85,14 @@ $(document).ready(function() {
         stt = response.stt;
         vbd = response.vbd;
         tel = response.tel;
+
+        if (!!response.gtfs) {
+          $('#agency').text(vbd);
+          $('#actionResultHasData').show();
+          return;
+        }
+
+        $('#city').val(stt);
 
         $('#tel').text(tel);
         $('#tel-name').text(arn + " " + lvn + " " + lnn);
