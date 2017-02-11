@@ -696,6 +696,10 @@ section h3.section-subheading {
     font-size: 1.4em;
 }
 
+#actionError {
+    display: none;
+}
+
 .action-tabs {
     text-align: center;
 }
@@ -717,6 +721,15 @@ section h3.section-subheading {
 .action-phone {
     font-size: 2em;
     font-weight: bold;
+}
+
+#actionMailBtn {
+    margin: 1em 0;
+}
+
+.action-local {
+    font-size: 0.9em;
+    color: #AAA;
 }
 
 

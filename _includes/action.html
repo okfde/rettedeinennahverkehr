@@ -25,20 +25,17 @@
                         </div>
                     </form>
 
-                    <div class="form-group">
-                        <input type="text" placeholder="Stadt" id="ort" readonly="">
-                        <input type="text" placeholder="Landkreis" id="landkreis" readonly="">
-                        <input type="text" placeholder="Landkreis-AGS" id="ags" readonly=""><br />
-                        <input type="text" placeholder="LRA" id="lra" readonly="">
-                        <input type="text" placeholder="Anrede+n" id="arn" readonly="">
-                        <input type="text" placeholder="Sehr geehrte(r)" id="sge" readonly="">
-                        <input type="text" placeholder="Herr/Frau" id="ar" readonly="">
-                        <input type="text" placeholder="Landrat-vorname" id="lvn" readonly="">
-                        <input type="text" placeholder="Landrat-Nachname" id="lnn" readonly=""><br />
-                        <input type="text" placeholder="Straße" id="str" readonly="">
-                        <input type="text" placeholder="LRA-PLZ" id="lraplz" readonly="">
-                        <input type="text" placeholder="LRA-Stadt" id="stt" readonly=""><br />
-                        <input type="text" placeholder="LRA-Stadt" id="vbd" readonly="">
+                    <div id="actionError">
+                        <div class="alert alert-danger" role="alert">
+                            <strong>Oh, schade!</strong>
+                            Wir konnten deinen zuständigen Landkreis nicht ermitteln.
+                        </div>
+                        <p>
+                            Aber das ist nicht schlimm, du kannst trotzdem eine
+                            <a href="#" class="btn btn-primary action-generate-pdf">
+                                <span class="fa fa-download"></span> Briefvorlage herunterladen
+                            </a>
+                        </p>
                     </div>
 
                     <div id="actionResult">
@@ -88,14 +85,17 @@
                                     </div>
                                 </form>
 
-
-                                <a href="#" class="btn btn-primary btn-lg" id="actionMailBtn">
+                                <a href="#" class="btn btn-primary btn-lg action-generate-pdf">
                                     <span class="fa fa-download"></span> Brief herunterladen
                                 </a>
+
+                                <p class="action-local">Der Brief wird komplett in deinem Browser erstellt, deine Daten wandern nicht übers Internet.</p>
                             </div>
                             <div role="tabpanel" class="tab-pane" id="telephone">
                                 <p>Rufe die Verantwortlichen in den Gebietskörperschaften Deines Verkehrsverbundes an! Wir haben Dir einen Vorschlag vorformuliert und Statements für die wichtigsten Punkte</p>
                                 <span class="action-phone" id="tel"></span>
+
+                                <p>Lass dich zu <strong id="tel-name"></strong> verbinden.</p>
                             </div>
                         </div>
                     </div>
