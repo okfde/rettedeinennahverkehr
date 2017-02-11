@@ -696,6 +696,29 @@ section h3.section-subheading {
     font-size: 1.4em;
 }
 
+.action-tabs {
+    text-align: center;
+}
+
+.action-tabs li {
+    width: 50%;
+}
+
+.action-tabs svg {
+    display: block;
+    margin: 0 auto;
+}
+
+.tab-content {
+    text-align: center;
+    padding-top: 1.5em;
+}
+
+.action-phone {
+    font-size: 2em;
+    font-weight: bold;
+}
+
 
 .team-member {
     margin-bottom: 50px;

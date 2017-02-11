@@ -14,7 +14,6 @@
                 <div class="col-md-8">
                     <h4 class="service-heading">Offene Daten statt teurer Projekte</h4>
                     <p class="text-muted">Bislang bieten nur ausgewählte Vorreiterverbünde und -unternehmen ihre Fahrpläne im GTFS-Format an. Viele Verbünde sind immer noch der Ansicht, den Routenplaner für die Zukunft ganz alleine stemmen zu können, und <a href="https://fragdenstaat.de/anfrage/finanzielle-forderung-des-delfi-projekts/">investieren gemeinsam viele Millionen Euro aus Steuergeldern</a> für nicht sonderlich innovative Großprojekte. <strong>Du kannst mithelfen, diesen Kurs zu ändern!</strong></p>
-                    <p class="text-muted">Schreibe den Verantwortlichen in den Gebietskörperschaften Deines Verkehrsverbundes – und zwar keine E-Mail, sondern einen ganz klassischen Brief! Wir haben Dir einen Vorschlag vorformuliert, du musst nur noch Unterschreiben und abdingsen. Wenn Du möchtest, kannst Du bei der aufgeführten Telefonnummer auch anrufen und die wichtigsten Punkte vorlesen. Für Rückfragen haben wir auch eine <a href="#faq">FAQ</a> vorbereitet!</p>
 
                     <!-- Fancy Formular startet HIER! -->
                     <form action="" class="form-horizontal">
@@ -24,29 +23,55 @@
                                 <input value="" size="5" name="form[plz]" id="plz" type="text" placeholder="PLZ" class="form-control input-lg" />
                             </div>
                         </div>
-                        <div class="form-group">
-                            <input type="text" placeholder="Stadt" id="ort" readonly="">
-                            <input type="text" placeholder="Landkreis" id="landkreis" readonly="">
-                            <input type="text" placeholder="Landkreis-AGS" id="ags" readonly=""><br />
-                            <input type="text" placeholder="LRA" id="lra" readonly="">
-                            <input type="text" placeholder="Anrede+n" id="arn" readonly="">
-                            <input type="text" placeholder="Sehr geehrte(r)" id="sge" readonly="">
-                            <input type="text" placeholder="Herr/Frau" id="ar" readonly="">
-                            <input type="text" placeholder="Landrat-vorname" id="lvn" readonly="">
-                            <input type="text" placeholder="Landrat-Nachname" id="lnn" readonly=""><br />
-                            <input type="text" placeholder="Straße" id="str" readonly="">
-                            <input type="text" placeholder="LRA-PLZ" id="lraplz" readonly="">
-                            <input type="text" placeholder="LRA-Stadt" id="stt" readonly=""><br />
-                            <input type="text" placeholder="LRA-Stadt" id="vbd" readonly="">
-                            <input type="text" placeholder="Telefon" id="tel" readonly="">
+                    </form>
+
+                    <div class="form-group">
+                        <input type="text" placeholder="Stadt" id="ort" readonly="">
+                        <input type="text" placeholder="Landkreis" id="landkreis" readonly="">
+                        <input type="text" placeholder="Landkreis-AGS" id="ags" readonly=""><br />
+                        <input type="text" placeholder="LRA" id="lra" readonly="">
+                        <input type="text" placeholder="Anrede+n" id="arn" readonly="">
+                        <input type="text" placeholder="Sehr geehrte(r)" id="sge" readonly="">
+                        <input type="text" placeholder="Herr/Frau" id="ar" readonly="">
+                        <input type="text" placeholder="Landrat-vorname" id="lvn" readonly="">
+                        <input type="text" placeholder="Landrat-Nachname" id="lnn" readonly=""><br />
+                        <input type="text" placeholder="Straße" id="str" readonly="">
+                        <input type="text" placeholder="LRA-PLZ" id="lraplz" readonly="">
+                        <input type="text" placeholder="LRA-Stadt" id="stt" readonly=""><br />
+                        <input type="text" placeholder="LRA-Stadt" id="vbd" readonly="">
+                    </div>
+
+                    <div id="actionResult">
+                        <div class="action-tabs">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active">
+                                    <a href="#mail" aria-controls="mail" role="tab" data-toggle="tab">
+                                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="0 0 100 100" width="35" height="35"><g><path d="M93.047,20.615H6.953c-1.073,0-1.942,0.869-1.942,1.942v54.887c0,1.073,0.869,1.942,1.942,1.942h86.095   c1.073,0,1.942-0.869,1.942-1.942V22.557C94.989,21.484,94.12,20.615,93.047,20.615z M91.106,75.502H8.894V24.498h82.212V75.502z"></path><path d="M15.612,69.706c0.279,0.338,0.683,0.513,1.089,0.513c0.317,0,0.635-0.106,0.898-0.323l21.874-18.065l9.857,8.141   c0.261,0.216,0.58,0.323,0.899,0.323c0.322,0,0.644-0.11,0.906-0.329l9.703-8.125L82.394,69.89   c0.265,0.221,0.586,0.329,0.906,0.329c0.403,0,0.803-0.172,1.083-0.505c0.501-0.598,0.422-1.488-0.176-1.988L63.037,50   l21.169-17.725c0.597-0.501,0.676-1.39,0.176-1.988c-0.5-0.597-1.39-0.676-1.988-0.176L50.223,57.048L17.599,30.104   c-0.599-0.496-1.489-0.411-1.987,0.19c-0.496,0.601-0.411,1.49,0.19,1.987L37.256,50L15.801,67.719   C15.2,68.216,15.115,69.105,15.612,69.706z"></path></g></svg>
+                                        Brief
+                                    </a>
+                                </li>
+                                <li role="presentation">
+                                    <a href="#telephone" aria-controls="telephone" role="tab" data-toggle="tab">
+                                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="0 0 100 100" width="35" height="35"><path d="M14.5,83.1l24.3-14l-2.2-3.7l-24.2,14L14.5,83.1z M88.9,24.9c-1.6-2.7-3.5-4.9-6.2-6.2c-9-4.4-25.6-0.5-45.3,10.8  c-0.1,0.1-0.4,0.3-0.4,0.3C17.2,41.1,5.6,53.6,5,63.5c-0.2,3,0.7,5.9,2.3,8.6v0.1c0.6,1.1,1.4,2,2.2,2.8l24.8-14.3  c-0.4-1.1-0.8-2.3-1.5-3.4c-1.3-2.4-3.4-4.2-5.6-5.5c4.7-3.9,10.2-7.8,16.4-11.4c6-3.4,12-6.2,17.6-8.4c0,2.6,0.7,5.3,2.1,7.7  c0.5,1.1,1.4,2.1,2.2,3l24.8-14.3C90.1,27.1,89.5,26,88.9,24.9L88.9,24.9z M68.5,46.9l2.2,3.7l24.3-14l-2.2-3.8L68.5,46.9z"></path></svg>
+                                        Anrufen
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
 
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10" id="briefgenerator">
-                                <a href="javascript:renderPDF()" class="btn btn-primary btn-lg"><span class="fa fa-download"></span> Brief herunterladen</a>
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="mail">
+                                <p>Schreibe den Verantwortlichen in den Gebietskörperschaften Deines Verkehrsverbundes – und zwar keine E-Mail, sondern einen ganz klassischen Brief! Wir haben Dir einen Vorschlag vorformuliert, du musst nur noch Unterschreiben und abdingsen.</p>
+                                <a href="#" class="btn btn-primary btn-lg" id="actionMailBtn">
+                                    <span class="fa fa-download"></span> Brief herunterladen
+                                </a>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="telephone">
+                                <p>Rufe die Verantwortlichen in den Gebietskörperschaften Deines Verkehrsverbundes an! Wir haben Dir einen Vorschlag vorformuliert und Statements für die wichtigsten Punkte</p>
+                                <span class="action-phone" id="tel"></span>
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>

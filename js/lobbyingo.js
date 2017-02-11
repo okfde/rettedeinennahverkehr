@@ -22,6 +22,7 @@ function renderPDF() {
 
 
 $(document).ready(function() {
+  $('#actionResult').hide();
 
   var ort = $('#ort');
   var landkreis = $('#landkreis');
@@ -58,8 +59,8 @@ $(document).ready(function() {
               lraplz.val(response.plz);
               stt.val(response.stt);
               vbd.val(response.vbd);
-              tel.val(response.tel);
-              $('#briefgenerator').show();
+              tel.text(response.tel);
+              $('#actionResult').show();
             }
           })
         }
@@ -79,8 +80,10 @@ $(document).ready(function() {
       $('#stt').val('');
       $('#vbd').val('');
       $('#tel').val('');
-      $('#briefgenerator').hide();
+      $('#actionResult').hide();
     }
   });
 
+
+  $('#actionMailBtn').click(renderPDF);
 });
