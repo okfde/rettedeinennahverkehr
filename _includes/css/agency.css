@@ -824,7 +824,7 @@ section#contact .text-danger {
 
 footer {
     padding: 25px 0;
-    text-align: center;
+    text-align: left;
 }
 
 footer span.copyright {
@@ -832,6 +832,7 @@ footer span.copyright {
     text-transform: none;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     line-height: 40px;
+    line-height: 1;
 }
 
 footer ul.quicklinks {
@@ -843,6 +844,7 @@ footer ul.quicklinks {
 }
 
 ul.social-buttons {
+    text-align: center;
     margin-bottom: 0;
 }
 
