@@ -29,7 +29,7 @@ $(document).ready(function() {
       var ort = $('#ort');
       var landkreis = $('#landkreis');
       var ags = $('#ags');
-      $.getJSON('http://www.geonames.org/postalCodeLookupJSON?&country=DE&callback=?', {postalcode: this.value }, function(response) {
+      $.getJSON('https://www.geonames.net/postalCodeLookupJSON?&country=DE&callback=?', {postalcode: this.value }, function(response) {
         if (response && response.postalcodes.length && response.postalcodes[0].placeName) {
           ort.val(response.postalcodes[0].placeName);
           landkreis.val(response.postalcodes[0].adminName3);
