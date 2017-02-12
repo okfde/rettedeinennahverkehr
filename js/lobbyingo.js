@@ -78,6 +78,13 @@ $(document).ready(function() {
           return;
         }
 
+        vbd = response.vbd;
+        if (!!response.gtfs) {
+          $('#agency').text(vbd);
+          $('#actionResultHasData').show();
+          return;
+        }
+
         lra = response.ad1;
         ar = response.ar;
         arn = response.arn;
@@ -87,15 +94,8 @@ $(document).ready(function() {
         str = response.str;
         lraplz = response.plz;
         stt = response.stt;
-        vbd = response.vbd;
         tel = response.tel;
-        var cleanTel = tel.replace(/\D/g, '');
-
-        if (!!response.gtfs) {
-          $('#agency').text(vbd);
-          $('#actionResultHasData').show();
-          return;
-        }
+        var cleanTel = (tel || '').replace(/\D/g, '');
 
         $('#city').val(stt);
 
