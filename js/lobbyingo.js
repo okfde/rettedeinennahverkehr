@@ -16,7 +16,7 @@ function renderPDF() {
     "mit einiger Empörung durfte ich der Lügenpresse entnehmen, dass unser Verkehrsverbund " + vbd +  " seine Fahrplandaten " +
     "zwar mit Google teilt, nicht jedoch mit einheimischen Entwickler*innen. Sicher verstehen Sie, dass es auf diese " +
     "Weise mit Industrie 4.0 in Deutschland und moderner Mobilität nix werden kann.\n\nIch würde mich sehr freuen, " +
-    "wenn Sie bei der nächsten " + vbd + "-Mitgliederversammlung darauf hinwirken würden, dass die " + vbd + "-Fahrplandaten" +
+    "wenn Sie bei der nächsten " + vbd + "-Mitgliederversammlung darauf hinwirken würden, dass die " + vbd + "-Fahrplandaten " +
     "im freien Fahrplanformat GTFS und unter offener Lizenz allen interessierten Entwickler*innen zur Verfügung gestellt werden.");
 
   var d = new Date(),
@@ -45,9 +45,22 @@ function renderPDF() {
 	doc.output("dataurlnewwindow");
 }
 
+var sheetUrl = 'https://docs.google.com/spreadsheets/d/1MNPMJGdsoKYNwmdMAE3R8rZSO0B5jxrtlvadrFfMyQ8/pubhtml',
+    lkrData = {};
+
 $(document).ready(function() {
-  $('#actionResult').hide();
-  $('#actionResultHasData').hide();
+  Tabletop.init({
+    key: sheetUrl,
+    simpleSheet: true,
+     postProcess: function(row) {
+      row['gtfs'] = (row['gtfs'].toLowerCase() == 'true');
+    },
+    callback: function(data) {
+      $.each(data, function(idx, row) {
+        lkrData[row['AdminCode3']] = row;
+      });
+    }
+  });
 
   $('#plz').keyup(function() {
     plz = $(this).val();
@@ -59,11 +72,14 @@ $(document).ready(function() {
     }
     $.getJSON('https://schmidt.okfn.de/gn-plz?&country=DE&callback=?', {postalcode: plz }, function(response) {
       if (!response || typeof response.postalcodes == 'undefined' || response.postalcodes.length <= 0 || !response.postalcodes[0].placeName) {
+        $('#actionResult').hide();
+        $('#actionResultHasData').hide();
+        $('#actionError').show();
         return;
       }
 
       var data = response.postalcodes[0];
-      ort = data .placeName;
+      ort = data.placeName;
       landkreis = data.adminName3;
       if (typeof data.adminCode3 == "undefined") {
         ags = data.adminCode2;
@@ -73,38 +89,42 @@ $(document).ready(function() {
 
       $('#plzrepeat').text(plz);
 
-      $.getJSON('/data/' + ags + ".json", function(response) {
-        if (!response) {
-          return;
-        }
-
-        vbd = response.vbd;
-        if (!!response.gtfs) {
-          $('#agency').text(vbd);
-          $('#actionResultHasData').show();
-          return;
-        }
-
-        lra = response.ad1;
-        ar = response.ar;
-        arn = response.arn;
-        sge = response.sge;
-        lvn = response.lvn;
-        lnn = response.lnn;
-        str = response.str;
-        lraplz = response.plz;
-        stt = response.stt;
-        tel = response.tel;
-        var cleanTel = (tel || '').replace(/\D/g, '');
-
-        $('#city').val(stt);
-
-        $('#tel').attr('href', 'tel:' + cleanTel).text(tel);
-        $('#tel-name').text(arn + " " + lvn + " " + lnn);
-        $('#actionResult').show();
-      }).fail(function() {
+      var data = lkrData[ags];
+      if (typeof data == "undefined") {
         $('#actionError').show();
-      });
+        return;
+      }
+
+      vbd = data['Verbund'];
+      if (data['gtfs']) {
+        $('#agency').text(vbd);
+        $('#actionResultHasData').show();
+        return;
+      }
+
+      lra = data['Behörde'];
+      ar = data['ChefHerrFrau'];
+      arn = data['CHFn'];
+      sge = data['Anrede'];
+      lvn = data['ChefVorname'];
+      lnn = data['ChefNachname'];
+      str = data['Sitz (Straße)'];
+      lraplz = data['Sitz (PLZ)'];
+
+      if (data['AbwPostAdr'] != "" && data['AbwPLZ'] != "") {
+        str = data['AbwPostAdr'];
+        lraplz = data['AbwPLZ'];
+      }
+
+      stt = data['Sitz (Gemeinde)'];
+      tel = data['Telefon'];
+      var cleanTel = (tel || '').replace(/\D/g, '');
+
+      $('#city').val(ort);
+
+      $('#tel').attr('href', 'tel:' + cleanTel).text(tel);
+      $('#tel-name').text(arn + " " + lvn + " " + lnn);
+      $('#actionResult').show();
     }).fail(function() {
       $('#actionError').show();
     });

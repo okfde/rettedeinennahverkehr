@@ -702,7 +702,9 @@ section h3.section-subheading {
     font-size: 1.4em;
 }
 
-#actionError {
+#actionError,
+#actionResult,
+#actionResultHasData {
     display: none;
 }
 
