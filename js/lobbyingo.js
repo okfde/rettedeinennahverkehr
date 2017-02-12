@@ -48,6 +48,12 @@ function renderPDF() {
 var sheetUrl = 'https://docs.google.com/spreadsheets/d/1MNPMJGdsoKYNwmdMAE3R8rZSO0B5jxrtlvadrFfMyQ8/pubhtml',
     lkrData = {};
 
+function hideAll() {
+  $('#actionError').hide();
+  $('#actionResult').hide();
+  $('#actionResultHasData').hide();
+}
+
 $(document).ready(function() {
   Tabletop.init({
     key: sheetUrl,
@@ -65,15 +71,12 @@ $(document).ready(function() {
   $('#plz').keyup(function() {
     plz = $(this).val();
     if (plz.length <= 4) {
-      $('#actionError').hide();
-      $('#actionResult').hide();
-      $('#actionResultHasData').hide();
+      hideAll();
       return;
     }
-    $.getJSON('https://schmidt.okfn.de/gn-plz?&country=DE&callback=?', {postalcode: plz }, function(response) {
+    $.getJSON('https://schmidt.okfn.de/gn-plz?&country=DE&callback=?', { postalcode: plz }, function(response) {
       if (!response || typeof response.postalcodes == 'undefined' || response.postalcodes.length <= 0 || !response.postalcodes[0].placeName) {
-        $('#actionResult').hide();
-        $('#actionResultHasData').hide();
+        hideAll();
         $('#actionError').show();
         return;
       }
@@ -81,10 +84,16 @@ $(document).ready(function() {
       var data = response.postalcodes[0];
       ort = data.placeName;
       landkreis = data.adminName3;
-      if (typeof data.adminCode3 == "undefined") {
+      ags = data.adminCode3;
+      if (typeof ags == "undefined") {
         ags = data.adminCode2;
-      } else {
-        ags = data.adminCode3;
+      }
+      if (typeof ags == "undefined") {
+        ags = geonamesfix[plz];
+      }
+      if (typeof ags == "undefined") {
+        hideAll();
+        $('#actionError').show();
       }
 
       $('#plzrepeat').text(plz);
