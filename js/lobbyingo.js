@@ -144,8 +144,8 @@ $(document).ready(function() {
       var cleanTel = (tel || '').replace(/\D/g, '');
 
       $('#city').val(ort);
-      $('#tel').attr('href', 'tel:' + cleanTel).text(tel);
-      $('#tel-name').text(arn + " " + lvn + " " + lnn);
+      $('.data-tel').attr('href', 'tel:' + cleanTel).text(tel);
+      $('.data-tel-name').text(arn + " " + lvn + " " + lnn);
       $('#actionResult').show();
     }).fail(function() {
       $('#actionError').show();

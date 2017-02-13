@@ -611,9 +611,6 @@ section h3.section-subheading {
 .action-phone {
     font-size: 2em;
     font-weight: bold;
-}
-
-#tel {
     color: inherit;
     text-decoration: none;
 }
@@ -629,6 +626,10 @@ section h3.section-subheading {
 
 .svg-icon {
     vertical-align: middle;
+}
+
+.action-phone-support {
+    text-align: left;
 }
 
 footer {
