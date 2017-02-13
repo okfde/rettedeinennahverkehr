@@ -16,14 +16,21 @@
                     <p class="text-muted">Bislang bieten nur ausgewählte Vorreiterverbünde und -unternehmen ihre Fahrpläne im GTFS-Format an. Viele Verbünde sind immer noch der Ansicht, den Routenplaner für die Zukunft ganz alleine stemmen zu können, und <a href="https://fragdenstaat.de/anfrage/finanzielle-forderung-des-delfi-projekts/">investieren gemeinsam viele Millionen Euro aus Steuergeldern</a> für nicht sonderlich innovative Großprojekte. <strong>Du kannst mithelfen, diesen Kurs zu ändern!</strong></p>
 
                     <!-- Fancy Formular startet HIER! -->
-                    <form action="" class="form-horizontal">
+                    <form id="plz-form" action="" class="form-horizontal">
                         <div class="form-group">
                             <label for="plz" class="col-sm-6 control-label action-plz-label">Gib hier deine Postleitzahl ein:</label>
                             <div class="col-sm-4">
-                                <input value="" size="5" name="form[plz]" id="plz" type="text" placeholder="PLZ" class="form-control input-lg" />
+                                <input value="" size="5" name="plz" id="plz" type="text" placeholder="PLZ" class="form-control input-lg" />
                             </div>
                         </div>
                     </form>
+
+                    <div id="actionStillLoading">
+                        <div class="alert alert-warning" role="alert">
+                            <strong>Einen kleinen Moment bitte.</strong>
+                            Die Daten der Gebietskörperschaften und zuständigen Verkehrsverbünde werden im Hintergrund noch geladen. Es geht gleich weiter.
+                        </div>
+                    </div>
 
                     <div id="actionError">
                         <div class="alert alert-danger" role="alert">
@@ -42,7 +49,7 @@
                     <div id="actionResultHasData">
                         <div class="alert alert-success" role="alert">
                             <strong>Oh!</strong>
-                            In diesem Landkreis bietet der <span id="agency"></span> bereits offene Fahrplandaten an. Das ist klasse!
+                            In diesem Landkreis bietet der <span class="data-vbd"></span> bereits offene Fahrplandaten an. Das ist klasse!
                         </div>
                         <p>
                             Es gibt aber noch viele viele Verkehrsverbünde, wo das nicht der Fall ist. <br /><a href="https://twitter.com/home?status=Bei%20mir%20gibt's%20offene%20Fahrplandaten%20%E2%80%93%20bei%20dir%20auch?%20Hilf%20mit%20bei%20%23rettedeinennahverkehr!%20http%3A//rettedeinennahverkehr.de/">Zeig' diese Seite Deinen Freunden und hilf auch ihnen, ihren Nahverkehr zu retten!</a>
@@ -69,7 +76,7 @@
 
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane active" id="mail">
-                                <p>Schreibe den Verantwortlichen in den Gebietskörperschaften Deines Verkehrsverbundes – und zwar keine E-Mail, sondern einen ganz klassischen Brief! Wir haben Dir einen Vorschlag vorformuliert, du musst nur noch Unterschreiben und abdingsen.</p>
+                                <p>Schreibe den Verantwortlichen in den Gebietskörperschaften Deines Verkehrsverbundes <span class="data-vbd"></span> – und zwar keine E-Mail, sondern einen ganz klassischen Brief! Wir haben Dir einen Vorschlag vorformuliert, du musst nur noch Unterschreiben und abdingsen.</p>
 
                                 <p>Wenn du möchtest, kann der Brief gleich mit deinem Namen und Adresse befüllt werden:</p>
                                 <form action="" class="form-horizontal">
@@ -104,7 +111,7 @@
                                 <p class="action-local">Der Brief wird komplett in deinem Browser erstellt, deine Daten wandern nicht übers Internet.</p>
                             </div>
                             <div role="tabpanel" class="tab-pane" id="telephone">
-                                <p>Rufe die Verantwortlichen in den Gebietskörperschaften Deines Verkehrsverbundes an! Wir haben Dir einen Vorschlag vorformuliert und Statements für die wichtigsten Punkte</p>
+                                <p>Rufe die Verantwortlichen in den Gebietskörperschaften Deines Verkehrsverbundes <span class="data-vbd"></span> an! Wir haben Dir einen Vorschlag vorformuliert und Statements für die wichtigsten Punkte</p>
                                 <a class="action-phone" id="tel"></a>
 
                                 <p>Lass dich zu <strong id="tel-name"></strong> verbinden.</p>

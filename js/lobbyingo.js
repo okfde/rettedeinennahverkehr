@@ -46,10 +46,12 @@ function renderPDF() {
 }
 
 var sheetUrl = 'https://docs.google.com/spreadsheets/d/1MNPMJGdsoKYNwmdMAE3R8rZSO0B5jxrtlvadrFfMyQ8/pubhtml',
+    loaded = false;
     lkrData = {};
 
 function hideAll() {
   $('#actionError').hide();
+  $('#actionStillLoading').hide();
   $('#actionResult').hide();
   $('#actionResultHasData').hide();
 }
@@ -65,7 +67,15 @@ $(document).ready(function() {
       $.each(data, function(idx, row) {
         lkrData[row['AdminCode3']] = row;
       });
+      loaded = true;
+      // if somebody already tried to use it, do it again (now with data)
+      $('#plz').trigger('change');
     }
+  });
+
+  $('#plz-form').on('submit', function(ev) {
+    ev.preventDefault();
+    return false;
   });
 
   $('#plz').on('keyup change', function() {
@@ -74,9 +84,13 @@ $(document).ready(function() {
       hideAll();
       return;
     }
+    if (!loaded) {
+      $('#actionStillLoading').show();
+      return;
+    }
     $.getJSON('https://schmidt.okfn.de/gn-plz?&country=DE&callback=?', { postalcode: plz }, function(response) {
+      hideAll();
       if (!response || typeof response.postalcodes == 'undefined' || response.postalcodes.length <= 0 || !response.postalcodes[0].placeName) {
-        hideAll();
         $('#actionError').show();
         return;
       }
@@ -105,8 +119,8 @@ $(document).ready(function() {
       }
 
       vbd = data['Verbund'];
+      $('.data-vbd').text(vbd);
       if (data['gtfs']) {
-        $('#agency').text(vbd);
         $('#actionResultHasData').show();
         return;
       }
@@ -130,7 +144,6 @@ $(document).ready(function() {
       var cleanTel = (tel || '').replace(/\D/g, '');
 
       $('#city').val(ort);
-
       $('#tel').attr('href', 'tel:' + cleanTel).text(tel);
       $('#tel-name').text(arn + " " + lvn + " " + lnn);
       $('#actionResult').show();

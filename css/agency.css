@@ -584,6 +584,7 @@ section h3.section-subheading {
 }
 
 #actionError,
+#actionStillLoading,
 #actionResult,
 #actionResultHasData {
     display: none;
