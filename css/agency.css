@@ -306,6 +306,7 @@ header .intro-cta .btn {
     word-break: break-word;
     white-space: normal;
     max-width: 100%;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
 }
 
 section {
@@ -632,48 +633,8 @@ section h3.section-subheading {
 footer {
     padding: 25px 0;
     text-align: left;
-}
-
-footer span.copyright {
-    text-transform: uppercase;
-    text-transform: none;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    line-height: 40px;
-    line-height: 1;
-}
-
-footer ul.quicklinks {
-    margin-bottom: 0;
-    text-transform: uppercase;
-    text-transform: none;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    line-height: 40px;
-}
-
-ul.social-buttons {
-    text-align: center;
-    margin-bottom: 0;
-}
-
-ul.social-buttons li a {
-    display: block;
-    width: 40px;
-    height: 40px;
-    border-radius: 100%;
-    font-size: 20px;
-    line-height: 40px;
-    outline: 0;
-    color: #fff;
-    background-color: #222;
-    -webkit-transition: all .3s;
-    -moz-transition: all .3s;
-    transition: all .3s;
-}
-
-ul.social-buttons li a:hover,
-ul.social-buttons li a:focus,
-ul.social-buttons li a:active {
-    background-color: #{{ site.color.primary }};
+    line-height: 1.4;
 }
 
 .btn:focus,
