@@ -88,7 +88,7 @@ $(document).ready(function() {
       $('#actionStillLoading').show();
       return;
     }
-    $.getJSON('https://schmidt.okfn.de/gn-plz?&country=DE&callback=?', { postalcode: plz }, function(response) {
+    $.getJSON('https://rettedeinennahverkehr.de/api/gn-plz?&country=DE&callback=?', { postalcode: plz }, function(response) {
       hideAll();
       if (!response || typeof response.postalcodes == 'undefined' || response.postalcodes.length <= 0 || !response.postalcodes[0].placeName) {
         $('#actionError').show();
