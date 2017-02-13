@@ -68,7 +68,7 @@ $(document).ready(function() {
     }
   });
 
-  $('#plz').keyup(function() {
+  $('#plz').on('keyup change', function() {
     plz = $(this).val();
     if (plz.length <= 4) {
       hideAll();
@@ -88,7 +88,7 @@ $(document).ready(function() {
       if (typeof ags == "undefined") {
         ags = data.adminCode2;
       }
-      if (typeof ags == "undefined") {
+      if (typeof ags == "undefined" || ags == "00") {
         ags = geonamesfix[plz];
       }
       if (typeof ags == "undefined") {
