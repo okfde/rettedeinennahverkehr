@@ -1,4 +1,4 @@
-url: https://okfde.github.io
+url: http://rettedeinennahverkehr.de
 baseurl: ""
 
 # Site settings
@@ -11,17 +11,6 @@ color:
   primary: fed136
   secondary: fec503
   secondary-dark: 333
-
-# Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
-social:
-  - title: twitter
-    url: http://twitter.com/okfde
-
-# Postal address (add as many lines as necessary)
-address:
-  - line: Open Knowledge Foundation Deutschland e.V.
-  - line: Singerstr. 109
-  - line: 10179 Berlin
 
 # Build settings
 markdown: kramdown
