@@ -1,6 +1,6 @@
 var ort = '', landkreis = '', ags = '', lra = '', ar = '', arn = '',
     sge = '', lvn = '', lnn = '', str = '', lraplz = '', stt = '',
-    vbd = '', tel = '', plz = '';
+    vbd = '', tel = '', plz = '', goog = false;
 
 function renderPDF() {
 	var name= $("#name").val();
@@ -13,11 +13,27 @@ function renderPDF() {
   }
 
 	var text = (intro + "\n\n" +
-    "mit einiger Empörung durfte ich der Lügenpresse entnehmen, dass unser Verkehrsverbund " + vbd +  " seine Fahrplandaten " +
-    "zwar mit Google teilt, nicht jedoch mit einheimischen Entwickler*innen. Sicher verstehen Sie, dass es auf diese " +
-    "Weise mit Industrie 4.0 in Deutschland und moderner Mobilität nix werden kann.\n\nIch würde mich sehr freuen, " +
-    "wenn Sie bei der nächsten " + vbd + "-Mitgliederversammlung darauf hinwirken würden, dass die " + vbd + "-Fahrplandaten " +
-    "im freien Fahrplanformat GTFS und unter offener Lizenz allen interessierten Entwickler*innen zur Verfügung gestellt werden.");
+    "Leider musste ich feststellen, dass der " + vbd + " die Fahrplandaten nicht für  Softwareentwickler " +
+    "in einem maschinenlesbaren Format (z.B. GTFS) zur Verfügung stellt. Mit diesen Daten könnten " +
+    "Softwareentwickler (private, ehrenamtliche Entwickler*innen sowie auch Firmen) innovative " +
+    "Auskunfts-Apps für den " + vbd + " bereitstellen.\n" +
+    "\n" +
+    (goog ?
+    "Da der " + vbd + " die Fahrplandaten bereits für Google Maps bereit stellt, dürften die Daten " +
+    "schon in diesem Format vorliegen.\n" +
+    "\n" : "") +
+    "Beispiele für bereits existierende Anwendungen, welche diese offenen Fahrplandaten verwenden " +
+    "können, sind z.B. TransitApp und Citymapper, die auch ohne Internetverbindung funktionieren " +
+    "oder das Projekt digitransit (http://tinyurl.com/digitransit-ulm), welches die freigegeben " +
+    "Daten der Stadtwerke Ulm benutzt.\n" +
+    "\n" +
+    "Ich würde mich sehr freuen, wenn Sie bei der nächsten " + vbd + "-Mitgliederversammlung darauf " +
+    "hinwirken würden, dass die " + vbd + "-Fahrplandaten im freien Fahrplanformat GTFS und unter " +
+    "offener Lizenz allen interessierten Entwickler*innen zur Verfügung gestellt werden.\n" +
+    "\n" +
+    "Ich freue mich auf Ihre Antwort und stehe bei Rückfragen gerne zur Verfügung.\n" +
+    "\n" +
+    "Mit freundlichen Grüßen");
 
   var d = new Date(),
       months = 'Januar,Februar,März,April,Mai,Juni,Juli,August,September,Oktober,November,Dezember'.split(','),
@@ -39,8 +55,14 @@ function renderPDF() {
 	lines = doc.splitTextToSize(text, 160)
 	doc.text(20, 100, lines)
 	doc.setDrawColor(100,100,100);
-	doc.line(20, 215, 80, 215);
-	doc.text(20, 222, name);
+
+  var y = 230;
+  if (goog) {
+    y = 250;
+  }
+
+	doc.line(20, y, 80, y);
+	doc.text(20, y + 10, name);
 
 	doc.output("dataurlnewwindow");
 }
@@ -143,6 +165,8 @@ $(document).ready(function() {
       stt = data['Sitz (Gemeinde)'];
       tel = data['Telefon'];
       var cleanTel = (tel || '').replace(/\D/g, '');
+
+      goog = (data['google'].toLowerCase() == 'true');
 
       $('#city').val(ort);
       $('.data-tel').attr('href', 'tel:' + cleanTel).text(tel);
