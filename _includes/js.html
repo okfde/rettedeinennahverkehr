@@ -8,6 +8,7 @@
 <script src="{{ "/js/geonamesfix.js" | prepend: site.baseurl }}"></script>
 <script src="{{ "/js/lobbyingo.js" | prepend: site.baseurl }}"></script>
 
+{% if jekyll.environment == "production" %}
 <!-- Piwik -->
 <script type="text/javascript">
   var _paq = _paq || [];
@@ -22,3 +23,6 @@
   })();
 </script>
 <!-- End Piwik Code -->
+{% else %}
+<!-- piwik: development mode, skipping -->
+{% endif %}
