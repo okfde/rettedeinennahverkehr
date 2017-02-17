@@ -15,3 +15,7 @@ color:
 # Build settings
 markdown: kramdown
 permalink: pretty
+exclude:
+  - README.md
+  - CNAME
+  - LICENSE
