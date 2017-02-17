@@ -168,6 +168,7 @@ $(document).ready(function() {
 
       goog = (data['google'].toLowerCase() == 'true');
 
+      $('#actionResult')[goog ? 'addClass' : 'removeClass']('has-google-gtfs');
       $('#city').val(ort);
       $('.data-tel').attr('href', 'tel:' + cleanTel).text(tel);
       $('.data-tel-name').text(arn + " " + lvn + " " + lnn);

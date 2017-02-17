@@ -636,6 +636,18 @@ section h3.section-subheading {
     display: none;
 }
 
+.show-if-gtfs {
+    display: none;
+}
+
+.has-google-gtfs .show-if-gtfs {
+    display: block;
+}
+
+dd {
+    padding-left: 1.5em;
+}
+
 footer {
     padding: 25px 0;
     text-align: left;
