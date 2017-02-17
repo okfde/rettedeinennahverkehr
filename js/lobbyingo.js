@@ -45,10 +45,6 @@ function renderPDF() {
 	doc.output("dataurlnewwindow");
 }
 
-var sheetUrl = 'https://docs.google.com/spreadsheets/d/1MNPMJGdsoKYNwmdMAE3R8rZSO0B5jxrtlvadrFfMyQ8/pubhtml',
-    loaded = false;
-    lkrData = {};
-
 function hideAll() {
   $('#actionError').hide();
   $('#actionStillLoading').hide();
@@ -56,11 +52,16 @@ function hideAll() {
   $('#actionResultHasData').hide();
 }
 
+var sheetUrl = 'https://docs.google.com/spreadsheets/d/1MNPMJGdsoKYNwmdMAE3R8rZSO0B5jxrtlvadrFfMyQ8/pubhtml',
+    lkrData = {},
+    loaded = false,
+    thanked = false;
+
 $(document).ready(function() {
   Tabletop.init({
     key: sheetUrl,
     simpleSheet: true,
-     postProcess: function(row) {
+    postProcess: function(row) {
       row['gtfs'] = (row['gtfs'].toLowerCase() == 'true');
     },
     callback: function(data) {
@@ -88,7 +89,7 @@ $(document).ready(function() {
       $('#actionStillLoading').show();
       return;
     }
-    $.getJSON('https://rettedeinennahverkehr.de/api/gn-plz?&country=DE&callback=?', { postalcode: plz }, function(response) {
+    $.getJSON('https://rettedeinennahverkehr.de/api/gn-plz?country=DE&callback=?', { postalcode: plz }, function(response) {
       hideAll();
       if (!response || typeof response.postalcodes == 'undefined' || response.postalcodes.length <= 0 || !response.postalcodes[0].placeName) {
         $('#actionError').show();
@@ -152,5 +153,18 @@ $(document).ready(function() {
     });
   });
 
-  $('.action-generate-pdf').click(renderPDF);
+  $('.action-generate-pdf').click(function(ev) {
+    ev.preventDefault();
+    renderPDF();
+    $('.action-thankyou').show();
+  });
+  $('.tab-link-telephone').click(function() {
+    if (thanked) {
+      return;
+    }
+    setTimeout(function() {
+      $('.action-thankyou').show();
+      thanked = true;
+    }, 10*1000);
+  });
 });
