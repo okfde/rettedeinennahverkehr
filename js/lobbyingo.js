@@ -13,23 +13,28 @@ function renderPDF() {
   }
 
 	var text = (intro + "\n\n" +
-    "Leider musste ich feststellen, dass der " + vbd + " die Fahrplandaten nicht für  Softwareentwickler " +
+    "Leider musste ich feststellen, dass der " + vbd + " keinen Soll-Fahrplandatensatz für Softwareentwickler " +
     "in einem maschinenlesbaren Format (z.B. GTFS) zur Verfügung stellt. Mit diesen Daten könnten " +
     "Softwareentwickler (private, ehrenamtliche Entwickler*innen sowie auch Firmen) innovative " +
-    "Auskunfts-Apps für den " + vbd + " bereitstellen.\n" +
+    "Auskunfts-Apps für das " + vbd + "-Gebiet bereitstellen.\n" +
     "\n" +
     (goog ?
-    "Da der " + vbd + " die Fahrplandaten bereits für Google Maps bereit stellt, dürften die Daten " +
-    "schon in diesem Format vorliegen.\n" +
+    "Aktuell werden die " + vbd + "-Sollfahrplandaten im GTFS-Format offenbar exklusiv an Google Maps abgegeben. " +
+    "Das heißt, die Daten liegen bereits im passenden Format vor, werden aber nicht der Allgemeinheit " +
+    "zur Verfügung gestellt. Es wäre sehr schade, wenn nur Google oder Firmen mit großer Rechtsabteilung an " +
+    "zukunftsträchtigen Mobilitätslösungen bei uns arbeiten dürften.\n" +
     "\n" : "") +
     "Beispiele für bereits existierende Anwendungen, welche diese offenen Fahrplandaten verwenden " +
     "können, sind z.B. TransitApp und Citymapper, die auch ohne Internetverbindung funktionieren " +
-    "oder das Projekt digitransit (http://tinyurl.com/digitransit-ulm), welches die freigegeben " +
-    "Daten der Stadtwerke Ulm benutzt.\n" +
+    "oder das Projekt digitransit (http://tinyurl.com/digitransit-ulm), welches die freigegebenen " +
+    "Daten der Stadtwerke Ulm benutzt. Auch Tür-zu-Tür-Auskünfte über Verkehrsmittel- und Verbundgrenzen " +
+    "hinweg sind so möglich – oder auch eine App, die die schönsten, mit dem ÖPNV erreichbaren " +
+    "Ausflugsziele der Region anbietet.\n" +
     "\n" +
     "Ich würde mich sehr freuen, wenn Sie bei der nächsten " + vbd + "-Mitgliederversammlung darauf " +
     "hinwirken würden, dass die " + vbd + "-Fahrplandaten im freien Fahrplanformat GTFS und unter " +
-    "offener Lizenz allen interessierten Entwickler*innen zur Verfügung gestellt werden.\n" +
+    "offener Lizenz allen interessierten Entwickler*innen ohne Einschränkung als Open Data zur Verfügung " +
+    "gestellt werden.\n" +
     "\n" +
     "Ich freue mich auf Ihre Antwort und stehe bei Rückfragen gerne zur Verfügung.\n" +
     "\n" +
@@ -56,12 +61,12 @@ function renderPDF() {
 	doc.text(20, 100, lines)
 	doc.setDrawColor(100,100,100);
 
-  var y = 230;
+  var y = 240;
   if (goog) {
-    y = 250;
+    y = 270;
   }
 
-	doc.line(20, y, 80, y);
+//	doc.line(20, y, 80, y);
 	doc.text(20, y + 10, name);
 
 	doc.output("dataurlnewwindow");
