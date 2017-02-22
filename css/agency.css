@@ -260,7 +260,7 @@ header .intro-text .intro-sublead {
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 15px;
     font-weight: 500;
-    line-height: 22px;
+    line-height: 1.6;
 }
 
 @media(min-width:768px) {
@@ -326,6 +326,7 @@ section h3.section-subheading {
     font-size: 16px;
     font-style: italic;
     font-weight: 400;
+    line-height: 1.7;
 }
 
 @media(min-width:768px) {
@@ -646,6 +647,8 @@ section h3.section-subheading {
 
 dd {
     padding-left: 1.5em;
+    line-height: 1.7;
+    margin-bottom: 1em;
 }
 
 footer {
