@@ -2,17 +2,14 @@ var ort = '', landkreis = '', ags = '', lra = '', ar = '', arn = '',
     sge = '', lvn = '', lnn = '', str = '', lraplz = '', stt = '',
     vbd = '', tel = '', plz = '', goog = false;
 
-function renderPDF() {
-	var name= $("#name").val();
-	var address= $("#address").val();
-	var city = $("#city").val();
+function generateText() {
   var intro = '';
 
   if (sge.length > 0 && ar.length > 0 && lnn.length > 0) {
     intro = sge + " " + ar + " " + lnn + ",";
   }
 
-	var text = (intro + "\n\n" +
+  var text = (intro + "\n\n" +
     "Leider musste ich feststellen, dass der " + vbd + " keinen Soll-Fahrplandatensatz für Softwareentwickler " +
     "in einem maschinenlesbaren Format (z.B. GTFS) zur Verfügung stellt. Mit diesen Daten könnten " +
     "Softwareentwickler (private, ehrenamtliche Entwickler*innen sowie auch Firmen) innovative " +
@@ -39,6 +36,20 @@ function renderPDF() {
     "Ich freue mich auf Ihre Antwort und stehe bei Rückfragen gerne zur Verfügung.\n" +
     "\n" +
     "Mit freundlichen Grüßen");
+  return text;
+}
+
+function renderPDF() {
+  var name= $("#name").val();
+  var address= $("#address").val();
+  var city = $("#city").val();
+  var intro = '';
+
+  if (sge.length > 0 && ar.length > 0 && lnn.length > 0) {
+    intro = sge + " " + ar + " " + lnn + ",";
+  }
+
+  var text = generateText();
 
   var d = new Date(),
       months = 'Januar,Februar,März,April,Mai,Juni,Juli,August,September,Oktober,November,Dezember'.split(','),
@@ -49,27 +60,27 @@ function renderPDF() {
     sender = name + "\n" + address + "\n" + plz + " " + city;
   }
 
-	var doc = new jsPDF();
-	doc.setFontSize(13);
+  var doc = new jsPDF();
+  doc.setFontSize(13);
   doc.text(20,  46, lra)
-	doc.text(20,  56, arn + " " + lvn + " " + lnn)
-	doc.text(20,  64, str);
-	doc.text(20,  74, lraplz + " " + stt);
-	doc.text(150,  30, sender + "\n\n" + datum)
+  doc.text(20,  56, arn + " " + lvn + " " + lnn)
+  doc.text(20,  64, str);
+  doc.text(20,  74, lraplz + " " + stt);
+  doc.text(150,  30, sender + "\n\n" + datum)
 
-	lines = doc.splitTextToSize(text, 160)
-	doc.text(20, 100, lines)
-	doc.setDrawColor(100,100,100);
+  lines = doc.splitTextToSize(text, 160)
+  doc.text(20, 100, lines)
+  doc.setDrawColor(100,100,100);
 
   var y = 240;
   if (goog) {
     y = 270;
   }
 
-//	doc.line(20, y, 80, y);
-	doc.text(20, y + 10, name);
+  // doc.line(20, y, 80, y);
+  doc.text(20, y + 10, name);
 
-	doc.output("dataurlnewwindow");
+  doc.output("dataurlnewwindow");
 }
 
 function hideAll() {
@@ -77,6 +88,7 @@ function hideAll() {
   $('#actionStillLoading').hide();
   $('#actionResult').hide();
   $('#actionResultHasData').hide();
+  $('.letter-text').hide();
 }
 
 var sheetUrl = 'https://docs.google.com/spreadsheets/d/1MNPMJGdsoKYNwmdMAE3R8rZSO0B5jxrtlvadrFfMyQ8/pubhtml',
@@ -188,6 +200,14 @@ $(document).ready(function() {
     renderPDF();
     $('.action-thankyou').show();
   });
+
+  $('.action-copy-text').click(function(ev) {
+    ev.preventDefault();
+    $('.letter-text').text(generateText()).show();
+    $('.letter-text').get(0).select();
+    $('.action-thankyou').show();
+  });
+
   $('.tab-link-telephone').click(function() {
     if (thanked) {
       return;

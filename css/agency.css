@@ -645,6 +645,12 @@ section h3.section-subheading {
     display: block;
 }
 
+.letter-text {
+    display: none;
+    width: 100%;
+    min-height: 150px;
+}
+
 dd {
     padding-left: 1.5em;
     line-height: 1.7;
