@@ -203,7 +203,8 @@ $(document).ready(function() {
 
   $('.action-copy-text').click(function(ev) {
     ev.preventDefault();
-    $('.letter-text').text(generateText()).show();
+    var address = lra + "\n" + arn + " " + lvn + " " + lnn + "\n" + str + "\n" + lraplz + " " + stt + "\n\n";
+    $('.letter-text').text(address + generateText()).show();
     $('.letter-text').get(0).select();
     $('.action-thankyou').show();
   });
