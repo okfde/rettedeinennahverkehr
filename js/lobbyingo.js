@@ -93,7 +93,8 @@ function hideAll() {
 
 var sheetUrl = 'https://docs.google.com/spreadsheets/d/1MNPMJGdsoKYNwmdMAE3R8rZSO0B5jxrtlvadrFfMyQ8/pubhtml',
     lkrData = {},
-    loaded = false,
+    plzData = {},
+    loaded = 0,
     thanked = false;
 
 $(document).ready(function() {
@@ -107,8 +108,20 @@ $(document).ready(function() {
       $.each(data, function(idx, row) {
         lkrData[row['AdminCode3']] = row;
       });
-      loaded = true;
+      loaded++;
       // if somebody already tried to use it, do it again (now with data)
+      $('#plz').trigger('change');
+    }
+  });
+
+  Papa.parse('data/plz2lkr.csv', {
+    download: true,
+    header: true,
+    step: function(row) {
+      plzData[row.data[0].plz] = row.data[0];
+    },
+    complete: function() {
+      loaded++;
       $('#plz').trigger('change');
     }
   });
@@ -124,75 +137,65 @@ $(document).ready(function() {
       hideAll();
       return;
     }
-    if (!loaded) {
+    if (loaded < 2) {
       $('#actionStillLoading').show();
       return;
     }
-    $.getJSON('https://rettedeinennahverkehr.de/api/gn-plz?country=DE&callback=?', { postalcode: plz }, function(response) {
-      hideAll();
-      if (!response || typeof response.postalcodes == 'undefined' || response.postalcodes.length <= 0 || !response.postalcodes[0].placeName) {
-        $('#actionError').show();
-        return;
-      }
+    hideAll();
 
-      var data = response.postalcodes[0];
-      ort = data.placeName;
-      landkreis = data.adminName3;
-      ags = data.adminCode3;
-      if (typeof ags == "undefined") {
-        ags = data.adminCode2;
-      }
-      if (typeof ags == "undefined" || ags == "00") {
-        ags = geonamesfix[plz];
-      }
-      if (typeof ags == "undefined") {
-        hideAll();
-        $('#actionError').show();
-      }
-
-      $('#plzrepeat').text(plz);
-
-      var data = lkrData[ags];
-      if (typeof data == "undefined") {
-        $('#actionError').show();
-        return;
-      }
-
-      vbd = data['Verbund'];
-      $('.data-vbd').text(vbd);
-      if (data['gtfs']) {
-        $('#actionResultHasData').show();
-        return;
-      }
-
-      lra = data['Behörde'];
-      ar = data['ChefHerrFrau'];
-      arn = data['CHFn'];
-      sge = data['Anrede'];
-      lvn = data['ChefVorname'];
-      lnn = data['ChefNachname'];
-      str = data['Sitz (Straße)'];
-      lraplz = data['Sitz (PLZ)'];
-
-      if (data['AbwPostAdr'] != "" && data['AbwPLZ'] != "") {
-        str = data['AbwPostAdr'];
-        lraplz = data['AbwPLZ'];
-      }
-
-      stt = data['Sitz (Gemeinde)'];
-      tel = data['Telefon'];
-      var cleanTel = (tel || '').replace(/\D/g, '');
-
-      goog = (data['google'].toLowerCase() == 'true');
-
-      $('#actionResult')[goog ? 'addClass' : 'removeClass']('has-google-gtfs');
-      $('#city').val(ort);
-      $('.data-tel').attr('href', 'tel:' + cleanTel).text(tel);
-      $('.data-tel-name').text(arn + " " + lvn + " " + lnn);
-      $('#actionResult').show();
-    }).fail(function() {
+    if (typeof plzData[plz] == "undefined") {
       $('#actionError').show();
-    });
+      return;
+    }
+
+    ort = plzData[plz].ort;
+    landkreis = plzData[plz].landkreis;
+    ags = plzData[plz].ags;
+    if (typeof ags == "undefined") {
+      hideAll();
+      $('#actionError').show();
+    }
+
+    $('#plzrepeat').text(plz);
+
+    var data = lkrData[ags];
+    if (typeof data == "undefined") {
+      $('#actionError').show();
+      return;
+    }
+
+    vbd = data['Verbund'];
+    $('.data-vbd').text(vbd);
+    if (data['gtfs']) {
+      $('#actionResultHasData').show();
+      return;
+    }
+
+    lra = data['Behörde'];
+    ar = data['ChefHerrFrau'];
+    arn = data['CHFn'];
+    sge = data['Anrede'];
+    lvn = data['ChefVorname'];
+    lnn = data['ChefNachname'];
+    str = data['Sitz (Straße)'];
+    lraplz = data['Sitz (PLZ)'];
+
+    if (data['AbwPostAdr'] != "" && data['AbwPLZ'] != "") {
+      str = data['AbwPostAdr'];
+      lraplz = data['AbwPLZ'];
+    }
+
+    stt = data['Sitz (Gemeinde)'];
+    tel = data['Telefon'];
+    var cleanTel = (tel || '').replace(/\D/g, '');
+
+    goog = (data['google'].toLowerCase() == 'true');
+
+    $('#actionResult')[goog ? 'addClass' : 'removeClass']('has-google-gtfs');
+    $('#city').val(ort);
+    $('.data-tel').attr('href', 'tel:' + cleanTel).text(tel);
+    $('.data-tel-name').text(arn + " " + lvn + " " + lnn);
+    $('#actionResult').show();
   });
 
   $('.action-generate-pdf').click(function(ev) {
