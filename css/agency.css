@@ -451,6 +451,11 @@ section h3.section-subheading {
     background-color: #{{ site.color.primary }};
 }
 
+.timeline>li .timeline-image a {
+    color: #fff;
+    text-decoration: none;
+}
+
 .timeline>li .timeline-image h4 {
     margin-top: 12px;
     font-size: 10px;
@@ -616,6 +621,12 @@ section h3.section-subheading {
     .timeline-last .timeline-heading {
         display: none;
     }
+}
+
+#plz-form {
+    background: #fed136;
+    padding: 1em 1em 0.1em;
+    margin-bottom: 1.5em;
 }
 
 .action-plz-label {
