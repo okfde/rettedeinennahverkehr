@@ -6,8 +6,12 @@
 
 body {
     overflow-x: hidden;
-    font-family: "Roboto Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     color: #{{ site.color.secondary-dark }};
+}
+
+body.wf-active {
+    font-family: "Roboto Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .text-muted {
@@ -53,8 +57,17 @@ h4,
 h5,
 h6 {
     text-transform: uppercase;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 700;
+}
+
+.wf-active h1,
+.wf-active h2,
+.wf-active h3,
+.wf-active h4,
+.wf-active h5,
+.wf-active h6 {
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .img-centered {
@@ -72,10 +85,14 @@ h6 {
 .btn-primary {
     border-color: #{{ site.color.primary }};
     text-transform: uppercase;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 700;
     color: #fff;
     background-color: #{{ site.color.primary }};
+}
+
+.wf-active .btn-primary {
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .btn-primary:hover,
@@ -104,11 +121,15 @@ h6 {
     border-color: #{{ site.color.primary }};
     border-radius: 3px;
     text-transform: uppercase;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 18px;
     font-weight: 700;
     color: #fff;
     background-color: #{{ site.color.primary }};
+}
+
+.wf-active .btn-xl {
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .btn-xl:hover,
@@ -135,9 +156,13 @@ h6 {
 
 .navbar-default .navbar-brand {
     text-transform: uppercase;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 400;
     color: #fff;
+}
+
+.wf-active .navbar-default .navbar-brand {
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .navbar-default .navbar-brand:hover,
@@ -167,10 +192,14 @@ h6 {
 
 .navbar-default .nav li a {
     text-transform: uppercase;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 400;
     letter-spacing: 1px;
     color: #fff;
+}
+
+.wf-active .navbar-default .nav li a {
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .navbar-default .nav li a:hover,
@@ -240,16 +269,20 @@ header .intro-text {
 
 header .intro-text .intro-lead-in {
     margin-bottom: 25px;
-    font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: serif;
     font-size: 22px;
     font-style: italic;
     line-height: 1.5;
 }
 
+.wf-active header .intro-text .intro-lead-in {
+    font-family: "Droid Serif",serif;
+}
+
 header .intro-text .intro-heading {
     margin-bottom: 25px;
     text-transform: uppercase;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 50px;
     font-weight: 700;
     line-height: 50px;
@@ -257,10 +290,15 @@ header .intro-text .intro-heading {
 
 header .intro-text .intro-sublead {
     margin-bottom: 20px;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 15px;
     font-weight: 500;
     line-height: 1.6;
+}
+
+.wf-active header .intro-text .intro-sublead,
+.wf-active header .intro-text .intro-heading {
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 @media(min-width:768px) {
@@ -271,7 +309,6 @@ header .intro-text .intro-sublead {
 
     header .intro-text .intro-lead-in {
         margin-bottom: 25px;
-        font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
         font-size: 30px;
         font-style: italic;
         line-height: 40px;
@@ -279,8 +316,6 @@ header .intro-text .intro-sublead {
 
     header .intro-text .intro-heading {
         margin-bottom: 20px;
-        text-transform: uppercase;
-        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
         font-size: 60px;
         font-weight: 700;
         line-height: 65px;
@@ -288,7 +323,6 @@ header .intro-text .intro-sublead {
 
     header .intro-text .intro-sublead {
         margin-bottom: 40px;
-        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
         font-size: 20px;
         font-weight: 500;
         line-height: 25px;
@@ -322,11 +356,15 @@ section h2.section-heading {
 section h3.section-subheading {
     margin-bottom: 75px;
     text-transform: none;
-    font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: serif;
     font-size: 16px;
     font-style: italic;
     font-weight: 400;
     line-height: 1.7;
+}
+
+.wf-active section h3.section-subheading {
+    font-family: "Droid Serif",serif;
 }
 
 @media(min-width:768px) {
@@ -660,8 +698,12 @@ dd {
 footer {
     padding: 25px 0;
     text-align: left;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     line-height: 1.4;
+}
+
+.wf-active footer {
+    font-family: Montserrat"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .btn:focus,
