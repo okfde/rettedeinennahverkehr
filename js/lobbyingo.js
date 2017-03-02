@@ -10,10 +10,10 @@ function generateText() {
   }
 
   var text = (intro + "\n\n" +
-    "Leider musste ich feststellen, dass der " + vbd + " keinen Soll-Fahrplandatensatz für Softwareentwickler " +
-    "in einem maschinenlesbaren Format (z.B. GTFS) zur Verfügung stellt. Mit diesen Daten könnten " +
+    "Leider musste ich feststellen, dass unser Verkehrsverbund " + vbd + " keinen Fahrplandatensatz für Softwareentwickler " +
+    "in einem maschinenlesbaren Format zur Verfügung stellt. Mit diesen Daten könnten " +
     "Softwareentwickler (private, ehrenamtliche Entwickler*innen sowie auch Firmen) innovative " +
-    "Auskunfts-Apps für das " + vbd + "-Gebiet bereitstellen.\n" +
+    "Apps für das " + vbd + "-Gebiet bereitstellen.\n" +
     "\n" +
     (goog ?
     "Aktuell werden die " + vbd + "-Sollfahrplandaten im GTFS-Format offenbar exklusiv an Google Maps abgegeben. " +
@@ -21,12 +21,23 @@ function generateText() {
     "zur Verfügung gestellt. Es wäre sehr schade, wenn nur Google oder Firmen mit großer Rechtsabteilung an " +
     "zukunftsträchtigen Mobilitätslösungen bei uns arbeiten dürften.\n" +
     "\n" : "") +
-    "Beispiele für bereits existierende Anwendungen, welche diese offenen Fahrplandaten verwenden " +
-    "können, sind z.B. TransitApp und Citymapper, die auch ohne Internetverbindung funktionieren " +
-    "oder das Projekt digitransit (http://tinyurl.com/digitransit-ulm), welches die freigegebenen " +
-    "Daten der Stadtwerke Ulm benutzt. Auch Tür-zu-Tür-Auskünfte über Verkehrsmittel- und Verbundgrenzen " +
-    "hinweg sind so möglich – oder auch eine App, die die schönsten, mit dem ÖPNV erreichbaren " +
-    "Ausflugsziele der Region anbietet.\n" +
+    "Vor allem Apps für spezielle Anwendungsfälle, wie z.B. Verbindungsauskunftsapps für blinde Menschen, " +
+    "bei denen die Auskunft per Sprachausgabe realisiert wird, können von freigegebenen Fahrplandaten profitieren. " +
+    "Für die Entwicklung von solchen Spezialanwendungen fehlen beim Verbund wahrscheinlich die Ressourcen, " +
+    "aber durch die Freigabe der Daten können diese Anwendungen trotzdem ohne Zusatzkosten für den Verbund bereit gestellt werden." +
+    "\n" +
+    "Besonders für Touristen wird es durch die Datenfreigabe einfacher sich im ÖPNV zu bewegen, " +
+    "weil sich diese nicht für jeden Ort erst die passende Nahverkehrsapp herunterladen müssen. " +
+    "Denn so können Reisende bereits vorhandene und verbreitete Apps nutzen, welche Verbundübergreifend funktionieren, " +
+    "da die Anwendungen auf das verbreitete GTFS-Format setzen." +
+    "\n" +
+    "Auch werden Apps möglich, welche die schönsten, mit dem ÖPNV erreichbaren Ausflugsziele der Region anbieten " +
+    "und so neue Nutzergruppen für den ÖPNV und die Region begeistern können.\n" +
+    "\n" +
+    "Dabei wäre es sehr wichtig, dass die " + vbd + "-Fahrplandaten unter einer offenen Lizenz bereitgestellt werden. " +
+    "Nur so können Entwickler Anwendungen mit diesen Daten entwickeln oder in bestehende Apps integrieren, " +
+    "ohne sich bei jedem Verkehrsbetreiber wieder neu mit rechtlichen Fragen und Verträgen zu beschäftigen, " +
+    "was die Entwicklung massiv behindert bzw. sogar unmöglich macht.\n" +
     "\n" +
     "Ich würde mich sehr freuen, wenn Sie bei der nächsten " + vbd + "-Mitgliederversammlung darauf " +
     "hinwirken würden, dass die " + vbd + "-Fahrplandaten im freien Fahrplanformat GTFS und unter " +
@@ -61,16 +72,13 @@ function renderPDF() {
   }
 
   var doc = new jsPDF();
-  doc.setFontSize(13);
-  doc.text(20,  46, lra)
-  doc.text(20,  56, arn + " " + lvn + " " + lnn)
-  doc.text(20,  64, str);
-  doc.text(20,  74, lraplz + " " + stt);
-  doc.text(150,  30, sender + "\n\n" + datum)
+  doc.setFontSize(11);
+  doc.text(20,  45, lra + "\n\n" + arn + " " + lvn + " " + lnn + "\n" + str + "\n" + lraplz + " " + stt);
+  doc.text(150,  27, sender + "\n\n" + datum);
 
-  lines = doc.splitTextToSize(text, 160)
-  doc.text(20, 100, lines)
-  doc.setDrawColor(100,100,100);
+  lines = doc.splitTextToSize(text, 160);
+  doc.text(20, 85, lines);
+  doc.setDrawColor(100, 100, 100);
 
   var y = 240;
   if (goog) {
