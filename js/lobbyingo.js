@@ -9,11 +9,16 @@ function generateText() {
     intro = sge + " " + ar + " " + lnn + ",";
   }
 
+  var h = true;
+  if (vbd == "") {
+    h = false;
+  }
+
   var text = (intro + "\n\n" +
-    "Leider musste ich feststellen, dass unser Verkehrsverbund " + vbd + " keinen Fahrplandatensatz für Softwareentwickler " +
+    "Leider musste ich feststellen, dass unser Verkehrsverbund " + (h ? vbd + " ": "") + "keinen Fahrplandatensatz für Softwareentwickler " +
     "in einem maschinenlesbaren Format zur Verfügung stellt. Mit diesen Daten könnten " +
     "Softwareentwickler (private, ehrenamtliche Entwickler*innen sowie auch Firmen) innovative " +
-    "Apps für das " + vbd + "-Gebiet bereitstellen.\n" +
+    "Apps " + (h ? "für das " + vbd + "-Gebiet " : "") + "bereitstellen.\n" +
     "\n" +
     (goog ?
     "Aktuell werden die " + vbd + "-Sollfahrplandaten im GTFS-Format offenbar exklusiv an Google Maps abgegeben. " +
@@ -34,13 +39,13 @@ function generateText() {
     "Auch werden Apps möglich, welche die schönsten, mit dem ÖPNV erreichbaren Ausflugsziele der Region anbieten " +
     "und so neue Nutzergruppen für den ÖPNV und die Region begeistern können.\n" +
     "\n" +
-    "Dabei wäre es sehr wichtig, dass die " + vbd + "-Fahrplandaten unter einer offenen Lizenz bereitgestellt werden. " +
+    "Dabei wäre es sehr wichtig, dass die " + (h ? vbd + "-" : "") + "Fahrplandaten unter einer offenen Lizenz bereitgestellt werden. " +
     "Nur so können Entwickler Anwendungen mit diesen Daten entwickeln oder in bestehende Apps integrieren, " +
     "ohne sich bei jedem Verkehrsbetreiber wieder neu mit rechtlichen Fragen und Verträgen zu beschäftigen, " +
     "was die Entwicklung massiv behindert bzw. sogar unmöglich macht.\n" +
     "\n" +
-    "Ich würde mich sehr freuen, wenn Sie bei der nächsten " + vbd + "-Mitgliederversammlung darauf " +
-    "hinwirken würden, dass die " + vbd + "-Fahrplandaten im freien Fahrplanformat GTFS und unter " +
+    "Ich würde mich sehr freuen, wenn Sie bei der nächsten " + (h ? vbd + "-" : "") + "Mitgliederversammlung darauf " +
+    "hinwirken würden, dass die " + (h ? vbd + "-" : "") + "Fahrplandaten im freien Fahrplanformat GTFS und unter " +
     "offener Lizenz allen interessierten Entwickler*innen ohne Einschränkung als Open Data zur Verfügung " +
     "gestellt werden.\n" +
     "\n" +
