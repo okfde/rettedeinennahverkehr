@@ -59,6 +59,7 @@ function renderPDF() {
   var name= $("#name").val();
   var address= $("#address").val();
   var city = $("#city").val();
+  var email = $("#email").val();
   var intro = '';
 
   if (sge.length > 0 && ar.length > 0 && lnn.length > 0) {
@@ -71,15 +72,21 @@ function renderPDF() {
       months = 'Januar,Februar,März,April,Mai,Juni,Juli,August,September,Oktober,November,Dezember'.split(','),
       datum = d.getDate() + ". " + months[d.getMonth()] + " "+ d.getFullYear();
 
-  var sender = "\n\n";
+  var sender = "\n\n", senderpos = 150;
   if (name.length > 0 && address.length > 0 && city.length > 0) {
     sender = name + "\n" + address + "\n" + plz + " " + city;
+  }
+  if (email.length > 0) {
+    sender += "\n" + email;
+  }
+  if (name.length > 23 || address.length > 23 || email.length > 20) {
+    senderpos -= 15;
   }
 
   var doc = new jsPDF();
   doc.setFontSize(11);
   doc.text(20,  45, lra + "\n\n" + arn + " " + lvn + " " + lnn + "\n" + str + "\n" + lraplz + " " + stt);
-  doc.text(150,  27, sender + "\n\n" + datum);
+  doc.text(senderpos,  27, sender + "\n\n" + datum);
 
   lines = doc.splitTextToSize(text, 160);
   doc.text(20, 85, lines);
