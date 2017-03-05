@@ -101,6 +101,8 @@ function renderPDF() {
   doc.text(20, y + 10, name);
 
   doc.output("dataurlnewwindow");
+
+  (window._paq || []).push(['trackEvent', 'renderPDF']);
 }
 
 function hideAll() {
