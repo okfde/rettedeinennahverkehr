@@ -627,6 +627,7 @@ section h3.section-subheading {
     background: #fed136;
     padding: 1em 1em 0.1em;
     margin-bottom: 1.5em;
+    border-radius: 3px;
 }
 
 .action-plz-label {
