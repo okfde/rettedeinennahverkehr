@@ -263,8 +263,8 @@ header {
 
 header .intro-text {
     position: relative;
-    padding-top: 100px;
-    padding-bottom: 90px;
+    padding-top: 50px;
+    padding-bottom: 60px;
 }
 
 header .intro-text .intro-lead-in {
@@ -301,6 +301,19 @@ header .intro-text .intro-sublead {
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
+header .intro-cta {
+    position: absolute;
+    width: 100%;
+    padding-top: 10px;
+}
+
+header .intro-cta .btn {
+    word-break: break-word;
+    white-space: normal;
+    max-width: 100%;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+}
+
 @media(min-width:768px) {
     header .intro-text {
         padding-top: 100px;
@@ -328,19 +341,9 @@ header .intro-text .intro-sublead {
         line-height: 25px;
     }
 
-}
-
-header .intro-cta {
-    position: absolute;
-    width: 100%;
-    padding-top: 50px;
-}
-
-header .intro-cta .btn {
-    word-break: break-word;
-    white-space: normal;
-    max-width: 100%;
-    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+    header .intro-cta {
+        padding-top: 50px;
+    }
 }
 
 section {
@@ -365,12 +368,6 @@ section h3.section-subheading {
 
 .wf-active section h3.section-subheading {
     font-family: "Droid Serif",serif;
-}
-
-@media(min-width:768px) {
-    section {
-        padding: 150px 0;
-    }
 }
 
 .service-heading {
@@ -621,6 +618,10 @@ section h3.section-subheading {
     .timeline-last .timeline-heading {
         display: none;
     }
+}
+
+#action {
+    padding-bottom: 50px;
 }
 
 #plz-form {
