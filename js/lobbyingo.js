@@ -100,7 +100,13 @@ function renderPDF() {
   // doc.line(20, y, 80, y);
   doc.text(20, y + 10, name);
 
-  doc.output("dataurlnewwindow");
+  var pdfurl = doc.output("dataurlstring"),
+      win = window.open(pdfurl, '_blank');
+  try {
+    win.focus();
+  } catch (e) {
+    $('.action-error-openpdf').show();
+  }
 
   (window._paq || []).push(['trackEvent', 'renderPDF']);
 }
@@ -111,6 +117,7 @@ function hideAll() {
   $('#actionResult').hide();
   $('#actionResultHasData').hide();
   $('.letter-text').hide();
+  $('.action-error-openpdf').hide();
 }
 
 var sheetUrl = 'https://docs.google.com/spreadsheets/d/1MNPMJGdsoKYNwmdMAE3R8rZSO0B5jxrtlvadrFfMyQ8/pubhtml',

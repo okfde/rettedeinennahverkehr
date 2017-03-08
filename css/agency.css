@@ -683,7 +683,8 @@ section h3.section-subheading {
     text-align: left;
 }
 
-.action-thankyou {
+.action-thankyou,
+.action-error-openpdf {
     display: none;
 }
 
