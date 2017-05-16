@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: single
 ---
 
 * AVV (Aachen) - http://opendata.avv.de (gemeinfrei!)
