@@ -2,7 +2,7 @@
 layout: single
 ---
 
-Aktueller inoffizieller Stand der Fortschritte:
+Aktueller inoffizieller Stand der Fortschritte am 16.05.2017:
 
 * AVV (Aachen) - http://opendata.avv.de (gemeinfrei!)
 * htv (Heidenheimer Tarifverbund) - prinzipiell aufgeschlossen, verweist auf Nahverkehrsgesellschaft Baden-Württemberg / hätte gerne eine Vorlage für „Liebe NVBW, hiermit sagen wir euch rechtssicher, dass ihr alle unsere Daten als Open Data rausgeben duerft“
