@@ -14,4 +14,6 @@ Aktueller inoffizieller Stand der Fortschritte am 16.05.2017:
 * DING (Ulm) - wird in der Aufsichtsratssitzung im Juli diskutiert. Verbund bremst, Stadtwerke Ulm als größter Einzahler pochen auf Öffnung der Verbundgesamtdaten. Boilerplatevertrag könnte hilfreich sein.
 * VVS (Stuttgart) - will sich dem VRR-Datenportalprototypen anschließen (siehe MVV), arbeitet in der Verbundsuppe gerade eigene Nutzungsbedingungen aus, ohne dazu Open-Data-Expert*innen hinzuzuziehen
 
+09.07 walter - Lebkuchenupdatecomingforward
+
 Weiterer Schritt: Boilerplateverträge
