@@ -100,8 +100,17 @@ function renderPDF() {
   // doc.line(20, y, 80, y);
   doc.text(20, y + 10, name);
 
-  var pdfurl = doc.output("dataurlstring"),
-      win = window.open(pdfurl, '_blank');
+  var pdfurl = doc.output("dataurlstring");
+  if (!!window.chrome && !!window.chrome.webstore){
+    var iframe = "<iframe width='100%' height='100%' src='" + pdfurl + "'></iframe>"
+    var win = window.open();
+    win.document.open();
+    win.document.write(iframe);
+    win.document.close();
+  } else {
+    var win = window.open(pdfurl, '_blank');
+  }
+
   try {
     win.focus();
   } catch (e) {
