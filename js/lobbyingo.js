@@ -205,6 +205,7 @@ $(document).ready(function() {
     vbd = data['Verbund'];
     $('.data-vbd').text(vbd);
     if (data['gtfs']) {
+      $('.gtfs-link').attr("href", data['gtfs-link'])
       $('#actionResultHasData').show();
       return;
     }
