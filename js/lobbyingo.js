@@ -97,6 +97,11 @@ function renderPDF() {
     y = 270;
   }
 
+  //wenn der Name des Verbundes sehr lang ist, kann es sonst passieren, dass der name und die Grußformel überlagern
+  if (vbd.length > 10) {
+    y = y + 10;
+  }
+
   // doc.line(20, y, 80, y);
   doc.text(20, y + 10, name);
 
