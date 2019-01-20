@@ -106,7 +106,7 @@ function renderPDF() {
   doc.text(20, y + 10, name);
 
   var pdfurl = doc.output("dataurlstring");
-  if (!!window.chrome && !!window.chrome.webstore){
+  if (!!window.chrome){
     var iframe = "<iframe width='100%' height='100%' src='" + pdfurl + "'></iframe>"
     var win = window.open();
     win.document.open();
