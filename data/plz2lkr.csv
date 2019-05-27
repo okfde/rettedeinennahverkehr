@@ -2425,8 +2425,8 @@ plz,ort,ags,landkreis
 34326,Morschen,06634,Schwalm-Eder-Kreis
 34327,Körle,06634,Schwalm-Eder-Kreis
 34329,Nieste,06633,Kassel
-34346,"Hann. Münden, Gutsbezirk Reinhardswald",03152,Göttingen
-34355,Staufenberg,03152,Göttingen
+34346,"Hann. Münden, Gutsbezirk Reinhardswald",03159,Göttingen
+34355,Staufenberg,03159,Göttingen
 34359,Reinhardshagen,06633,Kassel
 34369,Hofgeismar,06633,Kassel
 34376,Immenhausen,06633,Kassel
@@ -2653,21 +2653,21 @@ plz,ort,ags,landkreis
 36460,"Krayenberggemeinde, Frauensee",16063,Wartburgkreis
 36466,"Dermbach, Wiesenthal",16063,Wartburgkreis
 36469,Tiefenort,16063,Wartburgkreis
-37073,Göttingen,03152,Göttingen
-37075,Göttingen,03152,Göttingen
-37077,Göttingen,03152,Göttingen
-37079,Göttingen,03152,Göttingen
-37081,Göttingen,03152,Göttingen
-37083,Göttingen,03152,Göttingen
-37085,Göttingen,03152,Göttingen
-37115,Duderstadt,03152,Göttingen
-37120,Bovenden,03152,Göttingen
-37124,Rosdorf,03152,Göttingen
-37127,Dransfeld u.a.,03152,Göttingen
-37130,Gleichen,03152,Göttingen
-37133,Friedland,03152,Göttingen
-37136,"Seulingen, Waake u.a.",03152,Göttingen
-37139,Adelebsen,03152,Göttingen
+37073,Göttingen,03159,Göttingen
+37075,Göttingen,03159,Göttingen
+37077,Göttingen,03159,Göttingen
+37079,Göttingen,03159,Göttingen
+37081,Göttingen,03159,Göttingen
+37083,Göttingen,03159,Göttingen
+37085,Göttingen,03159,Göttingen
+37115,Duderstadt,03159,Göttingen
+37120,Bovenden,03159,Göttingen
+37124,Rosdorf,03159,Göttingen
+37127,Dransfeld u.a.,03159,Göttingen
+37130,Gleichen,03159,Göttingen
+37133,Friedland,03159,Göttingen
+37136,"Seulingen, Waake u.a.",03159,Göttingen
+37139,Adelebsen,03159,Göttingen
 37154,Northeim,03155,Northeim
 37170,Uslar,03155,Northeim
 37176,Nörten-Hardenberg,03155,Northeim
@@ -2707,7 +2707,7 @@ plz,ort,ags,landkreis
 37359,Küllstedt,16061,Eichsfeld
 37412,"Herzberg, Elbingerode, Hörden",03156,Osterode am Harz
 37431,Bad Lauterberg,03156,Osterode am Harz
-37434,"Gieboldehausen, Rhumequelle",03152,Göttingen
+37434,"Gieboldehausen, Rhumequelle",03159,Göttingen
 37441,Bad Sachsa,03156,Osterode am Harz
 37444,Braunlage,03153,Goslar
 37445,Walkenried,03156,Osterode am Harz
