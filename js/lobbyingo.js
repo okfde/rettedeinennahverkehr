@@ -239,6 +239,7 @@ $(document).ready(function() {
     $('#city').val(ort);
     $('.data-tel').attr('href', 'tel:' + cleanTel).text(tel);
     $('.data-tel-name').text(arn + " " + lvn + " " + lnn);
+    $('.data-mail-name').text("(" + arn + " " + lvn + " " + lnn + ")");
     $('#actionResult').show();
   });
 
