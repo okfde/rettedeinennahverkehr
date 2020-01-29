@@ -4,18 +4,20 @@ var ort = '', landkreis = '', ags = '', lra = '', ar = '', arn = '',
 
 function generateText() {
   var intro = '';
+  var leading = 'L';
 
   if (sge.length > 0 && ar.length > 0 && lnn.length > 0) {
     intro = sge + " " + ar + " " + lnn + ",";
+    leading = 'l';
   }
 
   var h = true;
   if (vbd == "") {
     h = false;
   }
-
+  
   var text = (intro + "\n\n" +
-    "Leider musste ich feststellen, dass unser Verkehrsverbund " + (h ? vbd + " ": "") + "keinen Fahrplandatensatz für Softwareentwickler " +
+    leading + "eider musste ich feststellen, dass unser Verkehrsverbund " + (h ? vbd + " ": "") + "keinen Fahrplandatensatz für Softwareentwickler " +
     "in einem maschinenlesbaren Format zur Verfügung stellt. Mit diesen Daten könnten " +
     "Softwareentwickler (private, ehrenamtliche Entwickler*innen sowie auch Firmen) innovative " +
     "Apps " + (h ? "für das " + vbd + "-Gebiet " : "") + "bereitstellen.\n" +
