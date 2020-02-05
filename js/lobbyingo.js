@@ -18,38 +18,38 @@ function generateText() {
   
   var text = (intro + "\n\n" +
     leading + "eider musste ich feststellen, dass unser Verkehrsverbund " + (h ? vbd + " ": "") + "keinen Fahrplandatensatz für Softwareentwickler " +
-    "in einem maschinenlesbaren Format zur Verfügung stellt, obwohl dies seit 1. Dezember 2019 durch die " +
+    "in einem maschinenlesbaren Format zur Verfügung stellt, obwohl dies seit 1.12.2019 durch die " +
     "Delegierte Verordnung (EU) 1926/2017 gefordert wird und mittlerweile vielerorts üblich ist. Mit diesen Daten könnten " +
     "Softwareentwickler (private, ehrenamtliche Entwickler*innen sowie auch Firmen) innovative " +
     "Apps " + (h ? "für das " + vbd + "-Gebiet " : "") + "bereitstellen.\n" +
     "\n" +
     (goog ?
-    "Aktuell werden die " + vbd + "-Sollfahrplandaten im GTFS-Format offenbar exklusiv an Google Maps abgegeben. " +
-    "Das heißt, die Daten liegen bereits im passenden Format vor, werden aber nicht der Allgemeinheit " +
+    "Aktuell werden die " + vbd + "-Sollfahrplandaten im GTFS-Format wohl exklusiv an Google abgegeben. " +
+    "Das heißt, die Daten liegen schon im passenden Format vor, werden aber nicht der Allgemeinheit " +
     "zur Verfügung gestellt. Es wäre sehr schade, wenn nur Google oder Firmen mit großer Rechtsabteilung an " +
     "zukunftsträchtigen Mobilitätslösungen bei uns arbeiten dürften.\n" +
     "\n" : "") +
-    "Vor allem Apps für spezielle Anwendungsfälle, wie z.B. Verbindungsauskunftsapps für blinde Menschen, " +
-    "bei denen die Auskunft per Sprachausgabe realisiert wird, können von freigegebenen Fahrplandaten profitieren. " +
+    "Vor allem Apps für spezielle Anwendungsfälle, wie z.B. Auskunftsapps für blinde Menschen " +
+    "mit Auskunft per Sprachausgabe, können von freigegebenen Fahrplandaten profitieren. " +
     "Für die Entwicklung von solchen Spezialanwendungen fehlen beim Verbund wahrscheinlich die Ressourcen, " +
-    "aber durch die Freigabe der Daten können diese Anwendungen trotzdem ohne Zusatzkosten für den Verbund bereit gestellt werden." +
+    "aber durch die Freigabe der Daten können diese Anwendungen dennoch ohne Zusatzkosten für den Verbund entstehen." +
     "\n" +
     "Besonders für Touristen wird es durch die Datenfreigabe einfacher sich im ÖPNV zu bewegen, " +
-    "weil sich diese nicht für jeden Ort erst die passende Nahverkehrsapp herunterladen müssen. " +
-    "Denn so können Reisende bereits vorhandene und verbreitete Apps nutzen, welche Verbundübergreifend funktionieren, " +
-    "da die Anwendungen auf das verbreitete GTFS-Format setzen." +
+    "weil sich diese nicht für jeden Ort erst die lokale Nahverkehrsapp herunterladen müssen. " +
+    "Denn so können Reisende bereits vorhandene und verbreitete Apps nutzen, welche verbundübergreifend funktionieren, " +
+    "da die Anwendungen auf das etablierte GTFS-Format setzen." +
     "\n" +
     "Auch werden Apps möglich, welche die schönsten, mit dem ÖPNV erreichbaren Ausflugsziele der Region anbieten " +
     "und so neue Nutzergruppen für den ÖPNV und die Region begeistern können.\n" +
     "\n" +
-    "Dabei wäre es sehr wichtig, dass die " + (h ? vbd + "-" : "") + "Fahrplandaten unter einer offenen Lizenz bereitgestellt werden. " +
+    "Dabei wäre es sehr wichtig, dass die " + (h ? vbd + "-" : "") + "Fahrplandaten barrierefrei unter einer offenen Lizenz bereitgestellt werden. " +
     "Nur so können Entwickler Anwendungen mit diesen Daten entwickeln oder in bestehende Apps integrieren, " +
     "ohne sich bei jedem Verkehrsbetreiber wieder neu mit rechtlichen Fragen und Verträgen zu beschäftigen, " +
     "was die Entwicklung massiv behindert bzw. sogar unmöglich macht.\n" +
     "\n" +
     "Ich würde mich sehr freuen, wenn Sie bei der nächsten " + (h ? vbd + "-" : "") + "Mitgliederversammlung darauf " +
-    "hinwirken würden, dass die " + (h ? vbd + "-" : "") + "Fahrplandaten im freien Fahrplanformat GTFS und unter " +
-    "offener Lizenz allen interessierten Entwickler*innen ohne Einschränkung als Open Data zur Verfügung " +
+    "hinwirken, dass die " + (h ? vbd + "-" : "") + "Fahrplandaten gemäß der EU-Verordnung unter " +
+    "offener Lizenz allen interessierten Entwickler*innen ohne jegliche Einschränkung als Open Data zur Verfügung " +
     "gestellt werden.\n" +
     "\n" +
     "Ich freue mich auf Ihre Antwort und stehe bei Rückfragen gerne zur Verfügung.\n" +
