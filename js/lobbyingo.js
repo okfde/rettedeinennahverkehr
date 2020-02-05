@@ -18,7 +18,7 @@ function generateText() {
   
   var text = (intro + "\n\n" +
     leading + "eider musste ich feststellen, dass unser Verkehrsverbund " + (h ? vbd + " ": "") + "keinen Fahrplandatensatz für Softwareentwickler " +
-    "in einem maschinenlesbaren Format zur Verfügung stellt, obwohl dies seit 1. Dezember 2019 durch die" +
+    "in einem maschinenlesbaren Format zur Verfügung stellt, obwohl dies seit 1. Dezember 2019 durch die " +
     "Delegierte Verordnung (EU) 1926/2017 gefordert wird. Mit diesen Daten könnten " +
     "Softwareentwickler (private, ehrenamtliche Entwickler*innen sowie auch Firmen) innovative " +
     "Apps " + (h ? "für das " + vbd + "-Gebiet " : "") + "bereitstellen.\n" +
