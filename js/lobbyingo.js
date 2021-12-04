@@ -137,7 +137,7 @@ function hideAll() {
   $('.action-error-openpdf').hide();
 }
 
-var sheetUrl = 'https://docs.google.com/spreadsheets/d/1MNPMJGdsoKYNwmdMAE3R8rZSO0B5jxrtlvadrFfMyQ8/pubhtml',
+var sheetUrl = 'https://opensheet.vercel.app/1MNPMJGdsoKYNwmdMAE3R8rZSO0B5jxrtlvadrFfMyQ8/Landkreise',
     lkrData = {},
     plzData = {},
     loaded = 0,
