@@ -137,20 +137,21 @@ function hideAll() {
   $('.action-error-openpdf').hide();
 }
 
-var sheetUrl = 'https://docs.google.com/spreadsheets/d/1MNPMJGdsoKYNwmdMAE3R8rZSO0B5jxrtlvadrFfMyQ8/pubhtml',
+var sheetUrl = 'https://docs.google.com/spreadsheets/d/1MNPMJGdsoKYNwmdMAE3R8rZSO0B5jxrtlvadrFfMyQ8/pub?output=csv',
     lkrData = {},
     plzData = {},
     loaded = 0,
     thanked = false;
 
 $(document).ready(function() {
-  Tabletop.init({
-    key: sheetUrl,
-    simpleSheet: true,
-    postProcess: function(row) {
-      row['gtfs'] = (row['gtfs'].toLowerCase() == 'true');
-    },
-    callback: function(data) {
+  Papa.parse(sheeturl, {
+    download: true,
+    header: true,
+    //postProcess: function(row) {
+    //  row['gtfs'] = (row['gtfs'].toLowerCase() == 'true');
+    //},
+    complete: function(results) {
+      var data = results.data
       $.each(data, function(idx, row) {
         lkrData[row['AdminCode3']] = row;
       });
