@@ -144,7 +144,7 @@ var sheetUrl = 'https://docs.google.com/spreadsheets/d/1MNPMJGdsoKYNwmdMAE3R8rZS
     thanked = false;
 
 $(document).ready(function() {
-  Papa.parse(sheeturl, {
+  Papa.parse(sheetUrl, {
     download: true,
     header: true,
     //postProcess: function(row) {
