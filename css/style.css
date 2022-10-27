@@ -2,5 +2,6 @@
 layout: null
 ---
 
+{% include_relative fonts.css %}
 {% include_relative bootstrap.min.css %}
 {% include_relative agency.css %}
